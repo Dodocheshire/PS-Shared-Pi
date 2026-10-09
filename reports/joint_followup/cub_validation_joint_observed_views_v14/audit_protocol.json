@@ -1,0 +1,34 @@
+{
+  "dataset": "cub",
+  "samples": 256,
+  "independent_mc_seeds": [
+    9071,
+    9072
+  ],
+  "attribute_mc_seed": 9081,
+  "checkpoint_selection_frozen": true,
+  "test_used": false,
+  "source_sha256": "b8f24946e88319c54378c9cd3467122e403330bdb8a5aa0e163731624a79484d",
+  "baseline_sha256": "a9185fbd4e7e3b6384a80bfc8a40002ec7ff68be6e1059e410e1f0a108865614",
+  "directions_sha256": "57f50f8027cfaa246703213ec25481f9ca60955862ac13b1e2d1d0b9cfd38327",
+  "checkpoint_sha256": {
+    "outputs/cub/validation_joint_observed_views_v14/adapter_matched_seed0_cw1_lr1e-05/model.pt": "6a55c8bfe8a849d98149cf936039ff45ef274cea6443d045ce2bf6abae9bfca5",
+    "outputs/cub/validation_joint_observed_views_v14/adapter_matched_seed0_cw5_lr3e-06/model.pt": "98547dc178f0890259ada287d3489e30d86ea9e18a4fc704a3a026adc700bfec",
+    "outputs/cub/validation_joint_observed_views_v14/clean_seed0_cw1_lr1e-05/model.pt": "5d4046db4e8afb5f37e7879ef2c3b9642ad362e832bdb6af446dc6432605d477",
+    "outputs/cub/validation_joint_observed_views_v14/clean_seed0_cw5_lr3e-06/model.pt": "b9d49cbaa9348c53dd9b4143bf087c942e6514ff2fb37c65198be8c2635f2280",
+    "outputs/cub/validation_joint_observed_views_v14/diag_noise_seed0_cw1_lr1e-05/model.pt": "5692791fb890611f1ad2022eeb64e62292c12be81bf61b202b3c6d992e40b109",
+    "outputs/cub/validation_joint_observed_views_v14/diag_noise_seed0_cw5_lr3e-06/model.pt": "8591d3201d9bae49a1abb33db2657b7365206808f4b59116f45b1848b81876d1",
+    "outputs/cub/validation_joint_observed_views_v14/fixed_isotropic_seed0_cw1_lr1e-05/model.pt": "1831641966a14adc17c4fb768b22b73a8f13da0d5119d8de4c0ad165bad63a72",
+    "outputs/cub/validation_joint_observed_views_v14/fixed_isotropic_seed0_cw5_lr3e-06/model.pt": "8f155e1e9cd908da775b301f9d4f81dbc5a9012a407f5bbdca46b64e68d10073",
+    "outputs/cub/validation_joint_observed_views_v14/fixed_structured_seed0_cw1_lr1e-05/model.pt": "9cdf1eab615abc0e1d24c7c534807559d3614ae3c520c86a784670e1c77aa5c3",
+    "outputs/cub/validation_joint_observed_views_v14/fixed_structured_seed0_cw5_lr3e-06/model.pt": "27eb992f4cea96627ac8394d27e67694aa4c9e01edb98daedc37a3c335e00455",
+    "outputs/cub/validation_joint_observed_views_v14/mean_only_seed0_cw1_lr1e-05/model.pt": "38e55e462ea4e410fd83dae52f980e5bd6d610fac910f46943a6da4f47a4230f",
+    "outputs/cub/validation_joint_observed_views_v14/mean_only_seed0_cw5_lr3e-06/model.pt": "997de9650441994d7cd925a20648ad07f96d860c89b0e9094510f87d06f45a85",
+    "outputs/cub/validation_joint_observed_views_v14/shared_no_sampling_seed0_cw1_lr1e-05/model.pt": "36eb6963081614ecf6b672617881d7df4f90701bbdf0f510f784375d700a988f",
+    "outputs/cub/validation_joint_observed_views_v14/shared_no_sampling_seed0_cw5_lr3e-06/model.pt": "3de2aabfe9a7e9521a1254d2366d785eafe2cc9983ab83b22d5ba2e6b0936d52",
+    "outputs/cub/validation_joint_observed_views_v14/shared_noise_seed0_cw1_lr1e-05/model.pt": "baf93d1b26162d0e92484708970a24a47aca8e741597d05561f5c4f2469b5f5f",
+    "outputs/cub/validation_joint_observed_views_v14/shared_noise_seed0_cw5_lr3e-06/model.pt": "1241d7253f3ce30c4b3e2b262870c27f292f90b65f5488a03d8ecfe3242bce7d"
+  },
+  "attribute_protocol_sha256": "985e46202403608ae90e67e765d0a6b425e5b055ad19e1803ad5b106e711c958",
+  "annotation_sha256": "8fc84c850a4ac698e64af3d260edc5a336640d6ce21259bd40dce692e89db579"
+}

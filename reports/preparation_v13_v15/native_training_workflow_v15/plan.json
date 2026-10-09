@@ -1,0 +1,8 @@
+{
+  "smoke_protocol_sha256": "c50e763329ce812b0dd8b9097ac53d7a2b5f72dd1376751be81d14326595d5c5",
+  "smoke_metrics_sha256": "8f54a46f22bfc588c6a8e16aabd378a76ad7de6a43413ca9409ff1501b4ae0fe",
+  "screen_sha256": "d70e84fe75e1095ae99a4aaa6bdace6d94e60149bf410b553b47a26904ee6886",
+  "setting": "additional native train-attribute supervision, shared by all controls",
+  "test_access": false,
+  "final_evidence": false
+}

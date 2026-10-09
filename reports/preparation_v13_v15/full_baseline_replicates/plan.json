@@ -1,0 +1,156 @@
+{
+  "stage": "independent_full_baseline_preparation",
+  "reference_seed": 42,
+  "new_seeds": [
+    43,
+    44,
+    45,
+    46
+  ],
+  "datasets": [
+    "cub",
+    "cifar10",
+    "cifar100"
+  ],
+  "cases": [
+    {
+      "dataset": "cub",
+      "seed": 43
+    },
+    {
+      "dataset": "cub",
+      "seed": 44
+    },
+    {
+      "dataset": "cub",
+      "seed": 45
+    },
+    {
+      "dataset": "cub",
+      "seed": 46
+    },
+    {
+      "dataset": "cifar10",
+      "seed": 43
+    },
+    {
+      "dataset": "cifar10",
+      "seed": 44
+    },
+    {
+      "dataset": "cifar10",
+      "seed": 45
+    },
+    {
+      "dataset": "cifar10",
+      "seed": 46
+    },
+    {
+      "dataset": "cifar100",
+      "seed": 43
+    },
+    {
+      "dataset": "cifar100",
+      "seed": 44
+    },
+    {
+      "dataset": "cifar100",
+      "seed": 45
+    },
+    {
+      "dataset": "cifar100",
+      "seed": 46
+    }
+  ],
+  "source_sha256": {
+    "baseline.py": "1a0e9fbc8615ee3d2d15410c85ff0c8340978104eddaa03a53941d5c61e0a96c",
+    "common.py": "1ade0fe945d7bd0b6008f1a4b7b3a9d154873d66ebe669453b89e50a91ea1a44",
+    "baseline_replicates.py": "27cbfdcb8f879d5c2d663bfb4b98e5c6d688c50d067fed4a9587e2e8fc0f38f2"
+  },
+  "official_commit": "749c6e3b044606c18d60ce07e3b32171f25ef563",
+  "configs": {
+    "cub": {
+      "dataset": "cub",
+      "Tconf": 0.2,
+      "Tmerge": 0.9998,
+      "K_indep": 1,
+      "cbl_layer_num": 2,
+      "cbl_bias": true,
+      "cbl_batch_size": 32,
+      "cbl_lr": 0.0002,
+      "cbl_steps": 30000,
+      "weight_decay": 1e-05,
+      "lam": 0.0008,
+      "n_iters": 10000,
+      "saga_batch_size": 256,
+      "seed": 42
+    },
+    "cifar10": {
+      "dataset": "cifar10",
+      "Tconf": 0.2,
+      "Tmerge": 0.9996,
+      "K_indep": 5,
+      "cbl_layer_num": 2,
+      "cbl_bias": true,
+      "cbl_batch_size": 1024,
+      "cbl_lr": 0.0004,
+      "cbl_steps": 20000,
+      "weight_decay": 0.0,
+      "lam": 0.0007,
+      "n_iters": 10000,
+      "saga_batch_size": 256,
+      "seed": 42
+    },
+    "cifar100": {
+      "dataset": "cifar100",
+      "Tconf": 0.2,
+      "Tmerge": 0.9997,
+      "K_indep": 5,
+      "cbl_layer_num": 2,
+      "cbl_bias": true,
+      "cbl_batch_size": 512,
+      "cbl_lr": 0.0005,
+      "cbl_steps": 20000,
+      "weight_decay": 0.0,
+      "lam": 0.0007,
+      "n_iters": 10000,
+      "saga_batch_size": 256,
+      "seed": 42
+    }
+  },
+  "data_sha256": {
+    "cub": {
+      "manifest.json": "fcf363acdfd2cfd3c05ceb7fdaee0baa42e22a54aab1d5814c953cab2616f10a",
+      "train_target.pt": "315643581046419bc1b5b43d6df15919e4fdc6a04fdb79ca93a6912cffb44ce5",
+      "val_target.pt": "997b9ed347541a37793164842006d0e59c1b85993b8a529c7e4c5966aedb4034",
+      "train_concept_labels.pt": "d5c0937119513977805e3efc922e384b6707c017d25bbfcdf1e0df9856fc4166",
+      "val_concept_labels.pt": "8d024e27559d47b2c7a4e10cd25017009495b657810a6ea76982640d726b026d",
+      "concept_bank.pt": "3b41e2e794a8dcf15b982fa58c9417d13eb502e610369f9aa1f3b748b4d565b1"
+    },
+    "cifar10": {
+      "manifest.json": "13dd974fbefb34ec0099993a3e1246b91c7b1356fea021959b61fab097af1649",
+      "train_target.pt": "460fb2a94323a59ef37c4d53f93c28da4dbb610a9b725c47c9e255c0bdc619cd",
+      "val_target.pt": "b11624aa8f5e895dff79f9b4739c21c2f1738ae7205b5c0c905632682ef239e3",
+      "train_concept_labels.pt": "ce684c95178587d89671cda6e3aaee88bc2914007ea4380148a929d5c24a181f",
+      "val_concept_labels.pt": "5931fb9846a90d8ccbf81cc63db508c9ac3d3eab716920efe707955ee4017488",
+      "concept_bank.pt": "70aeed06592236776026fb3406f44b958334add61ca1640d48715ed1e9a9d809"
+    },
+    "cifar100": {
+      "manifest.json": "fed076c5f0f1ea043e74df55d78524b041970d43d9da9fe774508513c43aec67",
+      "train_target.pt": "ae8f4176dd6e50be27d85641596e8a9d912e909c1c8b36189792e1e8dd5a7b3b",
+      "val_target.pt": "34d117930cc76d868df32b2128b7cf6dd5694f1b3c9e08bbd69f99d32bc49375",
+      "train_concept_labels.pt": "d16ec063e879e0be6a0421ccad4bbc247dacf2301ac34449ea22e7241d68a7aa",
+      "val_concept_labels.pt": "93f2563ff5a4aacb349d54ccc9a9746f139f69c9a4595169990221c9bcd37df4",
+      "concept_bank.pt": "67db668b81b256e62371c76cb00a27903b7463ac8e8765bd254a77336fcedc78"
+    }
+  },
+  "variants": [
+    "official_final_state",
+    "corrected_best_validation"
+  ],
+  "test_access": false,
+  "locked_noise_candidate": false,
+  "final_evidence": false,
+  "scope": "Independent CBL and original SAGA-head training; fixed official split, pretrained features and deterministic training-only concept bank",
+  "limits": "Preparatory baseline replication. No selected Pi protocol, paired noise/control runs or final test evidence yet."
+}

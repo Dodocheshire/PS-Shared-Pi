@@ -17,7 +17,9 @@ COHORTS=[('cifar10','validation_joint_v5','CIFAR-10: semantic'),
          ('cub','validation_joint_residual_predictive_v8','CUB: predictive objective'),
          ('cub','validation_joint_sparse_head_v9','CUB: sparse head adapted'),
          ('cub','validation_joint_feature_mixup_v10','CUB: feature mixup'),
-         ('cub','validation_joint_robust_mixup_v12','CUB: expected task risk')]
+         ('cub','validation_joint_robust_mixup_v12','CUB: expected task risk'),
+         ('cub','validation_joint_feature_augmented_v13','CUB: observed covariance'),
+         ('cub','validation_joint_observed_views_v14','CUB: actual weak views')]
 METHODS=[('clean','Clean joint','#555555'),('mean_only','Mean only','#0072B2'),
          ('adapter_matched','Matched adapter','#CC79A7'),('shared_no_sampling','Sampling disabled','#009E73'),
          ('diag_noise','Diagonal noise','#56B4E9'),('shared_noise','Shared noise','#D55E00'),('fixed_structured','Fixed structured','#E69F00')]
@@ -39,7 +41,7 @@ def main():
 
 **结论：** 共享噪声相对关闭采样的平均差值 **{contrast['mean_delta_pp']:+.2f} pp**，条件配对 95% t 区间 **[{lo:+.2f}, {hi:+.2f}] pp**，跨过零；相对同容量适配/对角噪声也没有可靠优势。首个种子的 +0.10 pp 没有稳定重复。共享属性 BA 平均改变 **{ba:+.2f} pp**，仍非解释提升。该区间仅覆盖适配种子变化，不覆盖完整基线、概念库或测试不确定性。
 '''
-    fig,axes=plt.subplots(1,2,figsize=(11.5,7.6))
+    fig,axes=plt.subplots(1,2,figsize=(11.5,8.6))
     fig.subplots_adjust(left=.25,right=.98,top=.85,bottom=.23,wspace=.30)
     for index,(dataset,version,label) in enumerate(COHORTS):
         folder=ROOT/'outputs'/dataset/version;audit=folder.parent/(version+'_audit')
@@ -88,7 +90,7 @@ def main():
         ax.set_ylim(len(COHORTS)-.5,-.5);ax.spines[['top','right']].set_visible(False)
     axes[0].set_yticks(range(len(COHORTS)),[c[2] for c in COHORTS]);axes[1].set_yticks(range(len(COHORTS)),[])
     axes[0].set_xlabel('Accuracy delta vs original baseline (pp)');axes[0].set_xlim(-.035,.80)
-    axes[1].set_xlabel('Shared noise minus strongest deterministic (pp)');axes[1].set_xlim(-.40,.25)
+    axes[1].set_xlabel('Shared noise minus strongest deterministic (pp)');axes[1].set_xlim(-.40,.45)
     fig.suptitle('Complete joint-training screens: independent 256-sample validation checks',fontsize=11,y=.955)
     fig.legend(handles=[Line2D([0],[0],marker='o',ls='none',color=c,label=n) for _,n,c in METHODS],
                loc='lower center',bbox_to_anchor=(.5,.065),ncol=4,frameon=False,fontsize=8)
@@ -114,15 +116,33 @@ def main():
             lo,hi=100*row['accuracy_min'],100*row['accuracy_max']
             return f'{lo:.2f}%' if abs(lo-hi)<1e-5 else f'{lo:.2f}–{hi:.2f}%'
         table.append(f"| {label} | {percent(deterministic)} | {percent(shared)} |")
+    baseline_text=''
+    baseline_path=report/'independent_baselines.json'
+    if baseline_path.exists():
+        evidence=json.loads(baseline_path.read_text());lines=[]
+        for dataset in ['cifar10','cifar100','cub']:
+            rows=[r for r in evidence['records'] if r['dataset']==dataset and r['variant']=='corrected_best_validation']
+            values=[r['accuracy_percent'] for r in rows]
+            sd=f'{np.std(values,ddof=1):.3f}' if len(values)>1 else '—'
+            seed_text=', '.join(f"{r['seed']}: {r['accuracy_percent']:.2f}" for r in rows)
+            lines.append(f"| {dataset} | {len(rows)}/5 | {np.mean(values):.3f} | {sd} | {seed_text} |")
+        baseline_text='''
+**独立完整基线准备：** 按原配置独立训练 CBL 与原 SAGA 头，逐检查点重新计算验证指标。共享固定训练概念库与预训练图像特征；下表仅使用已完成的最佳验证权重，未完成种子不填值。这里没有最终 Pi 配对复验或测试成绩。
+
+| 数据集 | 已核验完整种子数 | 验证ACC均值（%） | 种子SD（pp） | 各种子验证ACC（%） |
+|---|---:|---:|---:|---|
+'''+ '\n'.join(lines)+'\n'
     primary=f"""# PS-CBM 主要实验进展
 
-已完成三个 RN50 基线、{16*len(COHORTS)+42+additional} 条注册验证运行（不含调试运行）。**最强 CUB 确定性适配达到 69.45%，尚未证明随机分量的额外收益。** 主队列为基线种子 42、适配种子 0；另有固定基线下五个适配种子的条件复验，仍不是五个独立完整基线。重复控制不算独立种子。测试集保持隔离，最终五种子验证尚未完成。
+已完成原始三个 RN50 基线、{16*len(COHORTS)+42+additional} 条注册验证运行（不含调试运行）。**最强 CUB 确定性适配达到 69.45%，尚未证明随机分量的额外收益。** 主队列为基线种子 42、适配种子 0；另有固定基线下五个适配种子的条件复验，与独立完整基线准备分开报告。重复控制不算独立种子。测试集保持隔离，最终五种子验证尚未完成。
 
 [完整基线图](02_complete_baselines.png)
 
 **目的：** 按官方文件名划分和配置建立基线，区分官方末轮权重与正确保存的最佳验证权重。
 
 **结论：** 最佳验证权重的 CIFAR-10 / CIFAR-100 / CUB 准确率为 **90.72% / 72.36% / 68.70%**，概念数为 **61 / 583 / 509**。不能与论文测试成绩直接比较。详见 [基线表](首轮基线.md)。
+
+{baseline_text}
 
 ![主要噪声对照](04_main_comparison.png)
 
@@ -142,13 +162,15 @@ def main():
 | 原稀疏分类头适配（16 条） | 让已有稀疏头适应新的概念分布，所有对照更新相同非零支持 | 663 个原非零位置保持不变；确定性适配达到 69.45%，共享模型复核为 69.30%。 |
 | 特征层 mixup（16 条） | 改善 CBL 训练覆盖，固定 alpha=0.2，使用软目标边际似然 | 共享模型复核 69.40%，比同配置关闭采样高 0.10 pp；同配置 A 对角噪声 69.35%–69.40%，共享结构没有额外优势。 |
 | 期望分类风险（16 条） | 只将分类目标改为逐次采样交叉熵，保留概念边际似然、均值保持和 mixup | 共享模型为 69.10% / 69.20%，未超过关闭采样的 69.30%。 |
+| 实测弱视图协方差（16 条） | 只用训练图像的两种弱变换估计低秩协方差，并按原训练敏感度规则校准尺度 | 共享复核为 68.90%–68.95% / 69.15%，未超过历史最强确定性 69.45%；共享属性 BA 下降约 0.17–0.19 pp。 |
+| 真实弱视图训练（16 条） | 所有方法均匀抽取原图/两种真实弱视图，保持原图概念目标及相同 mixup 和预算 | 共享复核为 69.05% / 69.15%–69.20%，属性 BA 仍下降约 0.15–0.23 pp，未确认随机额外收益。 |
 
 {replication_text}
 **解释检查：** CUB 原始人工属性按明确颜色/部位保守映射，覆盖 **68/312 属性**；筛选及阈值仅用训练集，验证排除 certainty < 3。基线 BA / AUROC 为 **67.43% / 72.52%**。共享方案 BA 仍略降，不能宣称解释提升；覆盖有限，且没有定位或因果干预证据。
 
 **效率与限制：** 概念数不变，CEA 随准确率同比变化；CEA 是论文紧凑度代理，不能替代人工属性质量。对照总览（04）横线是 Monte Carlo 范围，**不是置信区间**；条件复验（05）横线是注明范围的适配种子配对 t 区间。解析高斯概念均值用于区分非线性均值变化与随机推理效果，不替代重新训练的确定性对照。
 
-**继续迭代：** 特征 mixup 的条件复验未确认可靠优势。期望分类风险也未确认优势。现只用训练图像的反射填充轻微平移与翻转，准备实测特征变化，下一步检验不同噪声方向。尚未完成的案例不纳入图表。Goal 保持 active；仍需可靠候选、独立五种子、配对区间及最终测试。
+**继续迭代：** 实测协方差和真实弱视图两轮对照均已完成，属性退化仍未消除。独立完整基线种子 43–46 正按原 CBL/SAGA 预算准备；完成状态与逐检查点验证见 [独立基线证据](independent_baselines.json)。这是最终复验准备，不是锁定 Pi 方案后的五种子结论。下一轮检验加入训练原生属性目标的扩展设置，全部控制使用相同监督；与无属性监督基线的差异不归因于随机性。Goal 保持 active；仍需可靠候选、独立五种子、配对区间及最终测试。
 
 主要数值、CEA、属性变化和来源哈希见 [CSV](major_results.csv)、[来源汇总](major_results.json)。早期详细对照保留在 [首轮 CSV](validation_v1.csv)、[联合训练复核](joint_v5_summary.json)。
 """

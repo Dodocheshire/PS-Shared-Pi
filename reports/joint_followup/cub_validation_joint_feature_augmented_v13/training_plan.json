@@ -1,0 +1,120 @@
+{
+  "iteration": 13,
+  "dataset": "cub",
+  "seed": 0,
+  "baseline_seed": 42,
+  "epochs": 40,
+  "mixup_alpha": 0.2,
+  "calibration": {
+    "initial_scale": 0.3092943914706002,
+    "min_scale": 0.06185887829412005,
+    "max_scale": 0.9278831744118007,
+    "reference_scale": 0.1,
+    "reference_drift": 0.10489454865455627,
+    "rule": "reference scale times semantic/measured-noise training RMS concept drift",
+    "selection_split": "train",
+    "val_used": false,
+    "test_used": false,
+    "limits": "First-order sensitivity calibration, not an exact nonlinear drift match or validation-selected optimum.",
+    "measured_drift": 0.033914145082235336,
+    "target_variant": "measured_noise"
+  },
+  "calibration_sha256": "ec1e785433ae3fb3cddd88b3d5488f5462fc50989f51b62ae3c1a69f36387a3a",
+  "output": "outputs/cub/validation_joint_feature_augmented_v13",
+  "cases": [
+    {
+      "mode": "clean",
+      "concept_weight": 1.0,
+      "cbl_lr": 1e-05
+    },
+    {
+      "mode": "mean_only",
+      "concept_weight": 1.0,
+      "cbl_lr": 1e-05
+    },
+    {
+      "mode": "adapter_matched",
+      "concept_weight": 1.0,
+      "cbl_lr": 1e-05
+    },
+    {
+      "mode": "diag_noise",
+      "concept_weight": 1.0,
+      "cbl_lr": 1e-05
+    },
+    {
+      "mode": "shared_noise",
+      "concept_weight": 1.0,
+      "cbl_lr": 1e-05
+    },
+    {
+      "mode": "shared_no_sampling",
+      "concept_weight": 1.0,
+      "cbl_lr": 1e-05
+    },
+    {
+      "mode": "fixed_structured",
+      "concept_weight": 1.0,
+      "cbl_lr": 1e-05
+    },
+    {
+      "mode": "fixed_isotropic",
+      "concept_weight": 1.0,
+      "cbl_lr": 1e-05
+    },
+    {
+      "mode": "clean",
+      "concept_weight": 5.0,
+      "cbl_lr": 3e-06
+    },
+    {
+      "mode": "mean_only",
+      "concept_weight": 5.0,
+      "cbl_lr": 3e-06
+    },
+    {
+      "mode": "adapter_matched",
+      "concept_weight": 5.0,
+      "cbl_lr": 3e-06
+    },
+    {
+      "mode": "diag_noise",
+      "concept_weight": 5.0,
+      "cbl_lr": 3e-06
+    },
+    {
+      "mode": "shared_noise",
+      "concept_weight": 5.0,
+      "cbl_lr": 3e-06
+    },
+    {
+      "mode": "shared_no_sampling",
+      "concept_weight": 5.0,
+      "cbl_lr": 3e-06
+    },
+    {
+      "mode": "fixed_structured",
+      "concept_weight": 5.0,
+      "cbl_lr": 3e-06
+    },
+    {
+      "mode": "fixed_isotropic",
+      "concept_weight": 5.0,
+      "cbl_lr": 3e-06
+    }
+  ],
+  "test_access": false,
+  "geometry_change": "positive-concept covariance of observed weak-view changes; established train-only sensitivity scale rule",
+  "causal_contrast": "shared_noise vs shared_no_sampling: same generator, prior, budget; training sampling toggled",
+  "source_sha256": {
+    "joint_noise.py": "705208f58ad0ebb2089482292b5894198614bba18f65a1a6b2198ba4803e1de2",
+    "joint_feature_augmented_train.py": "7c0a460fb99c7b9548f3d5470003090cf3c7c3bc68a43977c7dd314558cbab52",
+    "joint_feature_augmented_screen.py": "8f1c595731081a1342ed998f29d60e6b72b6fff1c2bbb0e62705e9febeeb1d85",
+    "calibrated_scale.py": "fa8ea540fd2d1693f34abe28267fc538970e2d1dc2b1bfb9c7120b6326e0b422",
+    "augmentation_calibration.py": "7669f4e5657f72451af1dab84ff587d48bfd341515008822528e5b003aac96ea",
+    "augmentation_diagnostic.py": "1c7408153743f94d70b4d92506adf5f4a4d934a589203c0eafef732a63b81fa4",
+    "directions.py": "6e20a11786e2af3a8342d8e378e1e8443d7816558422fdb91a63d6e3b459e2b4",
+    "augmentation_directions.py": "431673d38c0199e3d314fa43dc3746a23e01472d8838c10f0af4c75011c6cda3",
+    "mixup_likelihood.py": "1f5e3c8bd7f7f259218bbddc45645428958e9c7f974dd41b7924a552a47c0236"
+  }
+}
