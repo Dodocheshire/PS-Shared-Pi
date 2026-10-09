@@ -1,14 +1,55 @@
 {
-  "time": 1791522060.2531638,
+  "time": 1791523557.3630118,
   "goal_status": "active",
   "completed_baselines": 3,
   "baseline_models": 6,
-  "completed_validation_controls": 42,
-  "tested_protocol_checks": 19,
+  "completed_validation_controls": 62,
+  "complete_reported_cohort_controls": 58,
+  "joint_completed_by_dataset": {
+    "cifar10": 1,
+    "cifar100": 3,
+    "cub": 16
+  },
+  "joint_registered_per_dataset": 16,
+  "running_queues": {
+    "cifar10": {
+      "phase": "running",
+      "pid": 1433174,
+      "child_pid": 1434426,
+      "index": 1,
+      "total": 16,
+      "case": {
+        "mode": "mean_only",
+        "concept_weight": 1.0,
+        "cbl_lr": 1e-05
+      },
+      "time": 1791523392.8951507
+    },
+    "cifar100": {
+      "phase": "running",
+      "pid": 1431566,
+      "child_pid": 1435477,
+      "index": 3,
+      "total": 16,
+      "case": {
+        "mode": "diag_noise",
+        "concept_weight": 1.0,
+        "cbl_lr": 1e-05
+      },
+      "time": 1791523495.877559
+    }
+  },
+  "tested_protocol_checks": 28,
   "test_features_encoded": false,
   "five_seed_final_evidence": false,
-  "current_result": "no reliable noise classification improvement",
-  "next_stage": "joint CBL learning with training-only semantic feature noise directions",
-  "prepared_directions": "artifacts/cub/joint_feature_v5/directions.pt",
-  "report": "../Essay/PS-Shared/report/\u4e3b\u8981\u5b9e\u9a8c\u8fdb\u5c55.md"
+  "native_attribute_validation": {
+    "dataset": "cub",
+    "attributes": 68,
+    "certainty_minimum": 3,
+    "mapping_and_thresholds_split": "train",
+    "evaluation_split": "val"
+  },
+  "current_result": "CUB joint noise does not beat strongest deterministic controls; native attribute BA slightly decreases",
+  "next_stage": "complete registered CIFAR joint cohorts, then revise only from train/validation evidence",
+  "report": "../Essay/PS-Shared/report/主要实验进展.md"
 }

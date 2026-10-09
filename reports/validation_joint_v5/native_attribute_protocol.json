@@ -1,0 +1,1019 @@
+{
+  "mapping_rule": "literal color and part; exclude patterns, patches, tips and multiple-part conjunctions",
+  "cohort_selection": "text match and >=10 known positives/negatives in train; no validation selection",
+  "threshold_split": "train",
+  "certainty_minimum": 3,
+  "total_attributes": 312,
+  "mapped_attributes": 68,
+  "evaluated_cohort": {
+    "9": {
+      "name": "has_wing_color::blue",
+      "concept_ids": [
+        280
+      ],
+      "concepts": [
+        "blue wings"
+      ],
+      "threshold": 0.007109927479177713,
+      "known_training_positive": 181,
+      "known_training_negative": 3228
+    },
+    "10": {
+      "name": "has_wing_color::brown",
+      "concept_ids": [
+        78
+      ],
+      "concepts": [
+        "brown wings"
+      ],
+      "threshold": 0.011624159291386604,
+      "known_training_positive": 1011,
+      "known_training_negative": 2398
+    },
+    "14": {
+      "name": "has_wing_color::grey",
+      "concept_ids": [
+        58,
+        133
+      ],
+      "concepts": [
+        "gray wings",
+        "grey wings"
+      ],
+      "threshold": 0.016889549791812897,
+      "known_training_positive": 1106,
+      "known_training_negative": 2303
+    },
+    "16": {
+      "name": "has_wing_color::olive",
+      "concept_ids": [
+        485
+      ],
+      "concepts": [
+        "grayish-olive wings"
+      ],
+      "threshold": 0.0006676267948932946,
+      "known_training_positive": 151,
+      "known_training_negative": 3258
+    },
+    "17": {
+      "name": "has_wing_color::green",
+      "concept_ids": [
+        326
+      ],
+      "concepts": [
+        "green wings"
+      ],
+      "threshold": 0.0035684502217918634,
+      "known_training_positive": 69,
+      "known_training_negative": 3340
+    },
+    "20": {
+      "name": "has_wing_color::black",
+      "concept_ids": [
+        27
+      ],
+      "concepts": [
+        "black wings"
+      ],
+      "threshold": 0.01293299999088049,
+      "known_training_positive": 1650,
+      "known_training_negative": 1759
+    },
+    "21": {
+      "name": "has_wing_color::white",
+      "concept_ids": [
+        126,
+        155,
+        324
+      ],
+      "concepts": [
+        "white wing spot",
+        "white wing markings",
+        "white wing spots"
+      ],
+      "threshold": 0.06495006382465363,
+      "known_training_positive": 986,
+      "known_training_negative": 2423
+    },
+    "24": {
+      "name": "has_upperparts_color::blue",
+      "concept_ids": [
+        125,
+        481
+      ],
+      "concepts": [
+        "blue upperparts",
+        "glossy blue upperparts"
+      ],
+      "threshold": 0.004116015508770943,
+      "known_training_positive": 190,
+      "known_training_negative": 3073
+    },
+    "25": {
+      "name": "has_upperparts_color::brown",
+      "concept_ids": [
+        33,
+        463,
+        503
+      ],
+      "concepts": [
+        "brown upperparts",
+        "grayish-brown upperparts",
+        "greyish brown upperparts"
+      ],
+      "threshold": 0.013525580987334251,
+      "known_training_positive": 940,
+      "known_training_negative": 2323
+    },
+    "29": {
+      "name": "has_upperparts_color::grey",
+      "concept_ids": [
+        191
+      ],
+      "concepts": [
+        "gray upperparts"
+      ],
+      "threshold": 0.011403740383684635,
+      "known_training_positive": 1084,
+      "known_training_negative": 2179
+    },
+    "31": {
+      "name": "has_upperparts_color::olive",
+      "concept_ids": [
+        5,
+        369
+      ],
+      "concepts": [
+        "olive upperparts",
+        "grayish olive upperparts"
+      ],
+      "threshold": 0.0019930843263864517,
+      "known_training_positive": 162,
+      "known_training_negative": 3101
+    },
+    "32": {
+      "name": "has_upperparts_color::green",
+      "concept_ids": [
+        392,
+        479
+      ],
+      "concepts": [
+        "olive green upperparts",
+        "green upperparts"
+      ],
+      "threshold": 0.000485600670799613,
+      "known_training_positive": 81,
+      "known_training_negative": 3182
+    },
+    "44": {
+      "name": "has_underparts_color::grey",
+      "concept_ids": [
+        98
+      ],
+      "concepts": [
+        "gray underparts"
+      ],
+      "threshold": 0.0003914935514330864,
+      "known_training_positive": 690,
+      "known_training_negative": 2709
+    },
+    "45": {
+      "name": "has_underparts_color::yellow",
+      "concept_ids": [
+        382
+      ],
+      "concepts": [
+        "yellow underparts"
+      ],
+      "threshold": 0.014189598150551319,
+      "known_training_positive": 570,
+      "known_training_negative": 2829
+    },
+    "51": {
+      "name": "has_underparts_color::white",
+      "concept_ids": [
+        12
+      ],
+      "concepts": [
+        "white underparts"
+      ],
+      "threshold": 0.020219571888446808,
+      "known_training_positive": 1493,
+      "known_training_negative": 1906
+    },
+    "59": {
+      "name": "has_back_color::brown",
+      "concept_ids": [
+        76,
+        77,
+        127,
+        478
+      ],
+      "concepts": [
+        "a brown back",
+        "brown back",
+        "a gray-brown back",
+        "olive-brown back"
+      ],
+      "threshold": 0.008806266821920872,
+      "known_training_positive": 753,
+      "known_training_negative": 2133
+    },
+    "63": {
+      "name": "has_back_color::grey",
+      "concept_ids": [
+        190,
+        319,
+        465,
+        492
+      ],
+      "concepts": [
+        "gray back",
+        "a grey back",
+        "grey back",
+        "blue-gray back"
+      ],
+      "threshold": 0.00786884780973196,
+      "known_training_positive": 896,
+      "known_training_negative": 1990
+    },
+    "64": {
+      "name": "has_back_color::yellow",
+      "concept_ids": [
+        221,
+        434
+      ],
+      "concepts": [
+        "yellow back",
+        "greenish-yellow back"
+      ],
+      "threshold": 0.003340502269566059,
+      "known_training_positive": 267,
+      "known_training_negative": 2619
+    },
+    "65": {
+      "name": "has_back_color::olive",
+      "concept_ids": [
+        343,
+        411
+      ],
+      "concepts": [
+        "olive back",
+        "a greenish-olive back"
+      ],
+      "threshold": 0.0020716083236038685,
+      "known_training_positive": 134,
+      "known_training_negative": 2752
+    },
+    "66": {
+      "name": "has_back_color::green",
+      "concept_ids": [
+        109,
+        110,
+        414
+      ],
+      "concepts": [
+        "olive green back",
+        "olive-green back",
+        "green back"
+      ],
+      "threshold": 0.0073364065028727055,
+      "known_training_positive": 65,
+      "known_training_negative": 2821
+    },
+    "69": {
+      "name": "has_back_color::black",
+      "concept_ids": [
+        40
+      ],
+      "concepts": [
+        "black back"
+      ],
+      "threshold": 0.005451301112771034,
+      "known_training_positive": 1050,
+      "known_training_negative": 1836
+    },
+    "110": {
+      "name": "has_breast_color::grey",
+      "concept_ids": [
+        493
+      ],
+      "concepts": [
+        "a gray breast"
+      ],
+      "threshold": 0.0004999852390028536,
+      "known_training_positive": 702,
+      "known_training_negative": 2773
+    },
+    "111": {
+      "name": "has_breast_color::yellow",
+      "concept_ids": [
+        142
+      ],
+      "concepts": [
+        "a yellow breast"
+      ],
+      "threshold": 0.021791700273752213,
+      "known_training_positive": 521,
+      "known_training_negative": 2954
+    },
+    "115": {
+      "name": "has_breast_color::orange",
+      "concept_ids": [
+        365,
+        385
+      ],
+      "concepts": [
+        "rusty orange breast",
+        "buff-orange breast"
+      ],
+      "threshold": 0.0036040411796420813,
+      "known_training_positive": 104,
+      "known_training_negative": 3371
+    },
+    "117": {
+      "name": "has_breast_color::white",
+      "concept_ids": [
+        63
+      ],
+      "concepts": [
+        "white breast"
+      ],
+      "threshold": 0.003363027237355709,
+      "known_training_positive": 1364,
+      "known_training_negative": 2111
+    },
+    "118": {
+      "name": "has_breast_color::red",
+      "concept_ids": [
+        409,
+        431
+      ],
+      "concepts": [
+        "rusty red breast",
+        "red breast"
+      ],
+      "threshold": 0.007233329117298126,
+      "known_training_positive": 152,
+      "known_training_negative": 3323
+    },
+    "121": {
+      "name": "has_throat_color::brown",
+      "concept_ids": [
+        240
+      ],
+      "concepts": [
+        "orangish-brown throat"
+      ],
+      "threshold": 0.0011771988356485963,
+      "known_training_positive": 315,
+      "known_training_negative": 3322
+    },
+    "126": {
+      "name": "has_throat_color::yellow",
+      "concept_ids": [
+        86,
+        195
+      ],
+      "concepts": [
+        "a pale yellow throat",
+        "yellow throat"
+      ],
+      "threshold": 0.03438041731715202,
+      "known_training_positive": 432,
+      "known_training_negative": 3205
+    },
+    "129": {
+      "name": "has_throat_color::pink",
+      "concept_ids": [
+        53
+      ],
+      "concepts": [
+        "red or pink throat"
+      ],
+      "threshold": 0.0018984355265274644,
+      "known_training_positive": 14,
+      "known_training_negative": 3623
+    },
+    "130": {
+      "name": "has_throat_color::orange",
+      "concept_ids": [
+        85
+      ],
+      "concepts": [
+        "rusty orange throat"
+      ],
+      "threshold": 0.002027637092396617,
+      "known_training_positive": 67,
+      "known_training_negative": 3570
+    },
+    "131": {
+      "name": "has_throat_color::black",
+      "concept_ids": [
+        121
+      ],
+      "concepts": [
+        "a black throat"
+      ],
+      "threshold": 0.016213227063417435,
+      "known_training_positive": 869,
+      "known_training_negative": 2768
+    },
+    "132": {
+      "name": "has_throat_color::white",
+      "concept_ids": [
+        11,
+        45
+      ],
+      "concepts": [
+        "white throat",
+        "a white throat"
+      ],
+      "threshold": 0.09126995503902435,
+      "known_training_positive": 1304,
+      "known_training_negative": 2333
+    },
+    "133": {
+      "name": "has_throat_color::red",
+      "concept_ids": [
+        456
+      ],
+      "concepts": [
+        "a ruby-red throat"
+      ],
+      "threshold": 0.00012932710524182767,
+      "known_training_positive": 151,
+      "known_training_negative": 3486
+    },
+    "140": {
+      "name": "has_eye_color::yellow",
+      "concept_ids": [
+        144,
+        147
+      ],
+      "concepts": [
+        "bright yellow eyes",
+        "yellow eyes"
+      ],
+      "threshold": 0.03980674222111702,
+      "known_training_positive": 69,
+      "known_training_negative": 3554
+    },
+    "145": {
+      "name": "has_eye_color::black",
+      "concept_ids": [
+        87,
+        152,
+        306
+      ],
+      "concepts": [
+        "black eye line",
+        "black eye mask",
+        "black eyes"
+      ],
+      "threshold": 0.008253495208919048,
+      "known_training_positive": 3242,
+      "known_training_negative": 381
+    },
+    "146": {
+      "name": "has_eye_color::white",
+      "concept_ids": [
+        136,
+        193,
+        418
+      ],
+      "concepts": [
+        "white eye ring",
+        "white eye rings",
+        "white eye-ring"
+      ],
+      "threshold": 0.03919299691915512,
+      "known_training_positive": 136,
+      "known_training_negative": 3487
+    },
+    "147": {
+      "name": "has_eye_color::red",
+      "concept_ids": [
+        107
+      ],
+      "concepts": [
+        "red eyes"
+      ],
+      "threshold": 0.046862322837114334,
+      "known_training_positive": 90,
+      "known_training_negative": 3533
+    },
+    "173": {
+      "name": "has_under_tail_color::yellow",
+      "concept_ids": [
+        361
+      ],
+      "concepts": [
+        "yellow undertail"
+      ],
+      "threshold": 0.0011420464143157005,
+      "known_training_positive": 207,
+      "known_training_negative": 2446
+    },
+    "202": {
+      "name": "has_belly_color::grey",
+      "concept_ids": [
+        223,
+        442
+      ],
+      "concepts": [
+        "a gray belly",
+        "grey belly"
+      ],
+      "threshold": 0.0016212859191000462,
+      "known_training_positive": 627,
+      "known_training_negative": 2702
+    },
+    "203": {
+      "name": "has_belly_color::yellow",
+      "concept_ids": [
+        194
+      ],
+      "concepts": [
+        "yellow belly"
+      ],
+      "threshold": 0.04920574650168419,
+      "known_training_positive": 541,
+      "known_training_negative": 2788
+    },
+    "209": {
+      "name": "has_belly_color::white",
+      "concept_ids": [
+        43
+      ],
+      "concepts": [
+        "white belly"
+      ],
+      "threshold": 0.2660495936870575,
+      "known_training_positive": 1424,
+      "known_training_negative": 1905
+    },
+    "248": {
+      "name": "has_primary_color::blue",
+      "concept_ids": [
+        130,
+        279,
+        357
+      ],
+      "concepts": [
+        "a vibrant blue plumage",
+        "blue plumage on wings",
+        "blue plumage"
+      ],
+      "threshold": 0.005352308042347431,
+      "known_training_positive": 231,
+      "known_training_negative": 3485
+    },
+    "249": {
+      "name": "has_primary_color::brown",
+      "concept_ids": [
+        113,
+        302,
+        353,
+        378,
+        383,
+        424,
+        469,
+        490
+      ],
+      "concepts": [
+        "dark brown plumage",
+        "brown plumage",
+        "grayish-brown plumage",
+        "gray or brown plumage",
+        "brown body plumage",
+        "dark mottled brown plumage",
+        "grayish brown plumage",
+        "mottled brown plumage"
+      ],
+      "threshold": 0.023070670664310455,
+      "known_training_positive": 938,
+      "known_training_negative": 2778
+    },
+    "250": {
+      "name": "has_primary_color::iridescent",
+      "concept_ids": [
+        143,
+        330,
+        420
+      ],
+      "concepts": [
+        "black iridescent plumage",
+        "green iridescent plumage",
+        "dark iridescent plumage"
+      ],
+      "threshold": 0.008820150047540665,
+      "known_training_positive": 74,
+      "known_training_negative": 3642
+    },
+    "253": {
+      "name": "has_primary_color::grey",
+      "concept_ids": [
+        92,
+        176,
+        233,
+        234,
+        307,
+        309,
+        314,
+        460
+      ],
+      "concepts": [
+        "blue-gray plumage",
+        "neutral gray plumage",
+        "gray body",
+        "gray plumage",
+        "dark gray plumage",
+        "solid gray plumage",
+        "gray plumage on the back",
+        "brownish-gray plumage"
+      ],
+      "threshold": 0.011129708960652351,
+      "known_training_positive": 1090,
+      "known_training_negative": 2626
+    },
+    "254": {
+      "name": "has_primary_color::yellow",
+      "concept_ids": [
+        31,
+        342,
+        437,
+        500
+      ],
+      "concepts": [
+        "yellow body",
+        "bright yellow body",
+        "yellow plumage",
+        "a yellow body"
+      ],
+      "threshold": 0.007408173754811287,
+      "known_training_positive": 535,
+      "known_training_negative": 3181
+    },
+    "256": {
+      "name": "has_primary_color::green",
+      "concept_ids": [
+        4,
+        323,
+        407,
+        476
+      ],
+      "concepts": [
+        "olive green plumage",
+        "dark green plumage",
+        "gray-green plumage",
+        "green plumage"
+      ],
+      "threshold": 0.008827523328363895,
+      "known_training_positive": 80,
+      "known_training_negative": 3636
+    },
+    "258": {
+      "name": "has_primary_color::orange",
+      "concept_ids": [
+        74
+      ],
+      "concepts": [
+        "orange plumage"
+      ],
+      "threshold": 0.0005461015389300883,
+      "known_training_positive": 131,
+      "known_training_negative": 3585
+    },
+    "259": {
+      "name": "has_primary_color::black",
+      "concept_ids": [
+        18,
+        148,
+        470
+      ],
+      "concepts": [
+        "black plumage",
+        "black body",
+        "a shiny black plumage"
+      ],
+      "threshold": 0.012269478291273117,
+      "known_training_positive": 1307,
+      "known_training_negative": 2409
+    },
+    "260": {
+      "name": "has_primary_color::white",
+      "concept_ids": [
+        214,
+        264,
+        358
+      ],
+      "concepts": [
+        "white body",
+        "white plumage",
+        "all white plumage"
+      ],
+      "threshold": 0.0030234581790864468,
+      "known_training_positive": 1108,
+      "known_training_negative": 2608
+    },
+    "261": {
+      "name": "has_primary_color::red",
+      "concept_ids": [
+        203,
+        432,
+        464
+      ],
+      "concepts": [
+        "bright red plumage",
+        "red plumage",
+        "bright red body"
+      ],
+      "threshold": 0.008095456287264824,
+      "known_training_positive": 139,
+      "known_training_negative": 3577
+    },
+    "269": {
+      "name": "has_leg_color::yellow",
+      "concept_ids": [
+        188
+      ],
+      "concepts": [
+        "yellow legs"
+      ],
+      "threshold": 0.007371070794761181,
+      "known_training_positive": 60,
+      "known_training_negative": 2967
+    },
+    "272": {
+      "name": "has_leg_color::pink",
+      "concept_ids": [
+        66,
+        484
+      ],
+      "concepts": [
+        "pink legs",
+        "pale pink legs"
+      ],
+      "threshold": 0.11633502691984177,
+      "known_training_positive": 79,
+      "known_training_negative": 2948
+    },
+    "273": {
+      "name": "has_leg_color::orange",
+      "concept_ids": [
+        283
+      ],
+      "concepts": [
+        "orange legs"
+      ],
+      "threshold": 0.007216235157102346,
+      "known_training_positive": 315,
+      "known_training_negative": 2712
+    },
+    "274": {
+      "name": "has_leg_color::black",
+      "concept_ids": [
+        17
+      ],
+      "concepts": [
+        "black legs"
+      ],
+      "threshold": 0.001751988078467548,
+      "known_training_positive": 911,
+      "known_training_negative": 2116
+    },
+    "276": {
+      "name": "has_leg_color::red",
+      "concept_ids": [
+        60
+      ],
+      "concepts": [
+        "red legs"
+      ],
+      "threshold": 0.026036150753498077,
+      "known_training_positive": 103,
+      "known_training_negative": 2924
+    },
+    "283": {
+      "name": "has_bill_color::grey",
+      "concept_ids": [
+        366,
+        440,
+        473
+      ],
+      "concepts": [
+        "short gray beak",
+        "pointed gray beak",
+        "grey bill"
+      ],
+      "threshold": 0.01584995724260807,
+      "known_training_positive": 1056,
+      "known_training_negative": 2597
+    },
+    "284": {
+      "name": "has_bill_color::yellow",
+      "concept_ids": [
+        187,
+        300,
+        477,
+        486
+      ],
+      "concepts": [
+        "yellow bill",
+        "yellow beak",
+        "conical yellow bill",
+        "a sharp yellow bill"
+      ],
+      "threshold": 0.03091147169470787,
+      "known_training_positive": 207,
+      "known_training_negative": 3446
+    },
+    "288": {
+      "name": "has_bill_color::orange",
+      "concept_ids": [
+        28,
+        210,
+        213,
+        263,
+        498
+      ],
+      "concepts": [
+        "orange beak",
+        "bright orange bill",
+        "orange bill",
+        "an orange bill",
+        "large orange bill"
+      ],
+      "threshold": 0.03620268031954765,
+      "known_training_positive": 278,
+      "known_training_negative": 3375
+    },
+    "289": {
+      "name": "has_bill_color::black",
+      "concept_ids": [
+        105,
+        106,
+        112,
+        197,
+        235,
+        242,
+        257,
+        282,
+        317,
+        359,
+        505
+      ],
+      "concepts": [
+        "a slender black bill",
+        "black bill",
+        "black beak",
+        "pointed black beak",
+        "long black bill",
+        "a large black beak",
+        "pointy black beak",
+        "a sharp black bill",
+        "a black bill",
+        "short black bill",
+        "thin black bill"
+      ],
+      "threshold": 0.07938515394926071,
+      "known_training_positive": 1646,
+      "known_training_negative": 2007
+    },
+    "291": {
+      "name": "has_bill_color::red",
+      "concept_ids": [
+        55,
+        56,
+        186,
+        248,
+        335,
+        441,
+        491
+      ],
+      "concepts": [
+        "a pointed red bill",
+        "a red beak",
+        "red bill spot",
+        "pointed red bill",
+        "a red bill",
+        "slender red bill",
+        "long red bill"
+      ],
+      "threshold": 0.006098958197981119,
+      "known_training_positive": 133,
+      "known_training_negative": 3520
+    },
+    "293": {
+      "name": "has_crown_color::blue",
+      "concept_ids": [
+        218,
+        321
+      ],
+      "concepts": [
+        "blue crown",
+        "a vibrant blue crown"
+      ],
+      "threshold": 0.0038486523553729057,
+      "known_training_positive": 203,
+      "known_training_negative": 3409
+    },
+    "294": {
+      "name": "has_crown_color::brown",
+      "concept_ids": [
+        272,
+        415,
+        480
+      ],
+      "concepts": [
+        "reddish brown cap",
+        "a brown crown",
+        "a brown cap"
+      ],
+      "threshold": 0.0024443366564810276,
+      "known_training_positive": 727,
+      "known_training_negative": 2885
+    },
+    "297": {
+      "name": "has_crown_color::rufous",
+      "concept_ids": [
+        329
+      ],
+      "concepts": [
+        "rufous crown"
+      ],
+      "threshold": 0.005276070907711983,
+      "known_training_positive": 65,
+      "known_training_negative": 3547
+    },
+    "298": {
+      "name": "has_crown_color::grey",
+      "concept_ids": [
+        312,
+        444
+      ],
+      "concepts": [
+        "gray crown",
+        "gray cap"
+      ],
+      "threshold": 0.002562312176451087,
+      "known_training_positive": 834,
+      "known_training_negative": 2778
+    },
+    "299": {
+      "name": "has_crown_color::yellow",
+      "concept_ids": [
+        50
+      ],
+      "concepts": [
+        "yellow crown"
+      ],
+      "threshold": 0.0021022772416472435,
+      "known_training_positive": 283,
+      "known_training_negative": 3329
+    },
+    "304": {
+      "name": "has_crown_color::black",
+      "concept_ids": [
+        26,
+        54,
+        57,
+        100,
+        384
+      ],
+      "concepts": [
+        "black cap",
+        "a black cap",
+        "black cap on head",
+        "black crown",
+        "a black crown"
+      ],
+      "threshold": 0.16860835254192352,
+      "known_training_positive": 1256,
+      "known_training_negative": 2356
+    },
+    "306": {
+      "name": "has_crown_color::red",
+      "concept_ids": [
+        328,
+        483
+      ],
+      "concepts": [
+        "red crown",
+        "a bright red crown"
+      ],
+      "threshold": 0.005497277248650789,
+      "known_training_positive": 165,
+      "known_training_negative": 3447
+    }
+  },
+  "test_examples_evaluated": false,
+  "baseline_sha256": "a9185fbd4e7e3b6384a80bfc8a40002ec7ff68be6e1059e410e1f0a108865614",
+  "source_sha256": "740b341b469e444cfb245975c64bb4126afb927664d05ff4ad552f2d7455ac38",
+  "attribute_names_sha256": "d5b158c197a8548071114150b2384c55cbd8881b32e57816c6ccc1437e946a1a",
+  "native_annotation_sha256": "5ebb9782d589f41a9c046bc7c5b1365e01839308e7cf88cbe83c0fb6d5362d98",
+  "manifest_sha256": "fcf363acdfd2cfd3c05ceb7fdaee0baa42e22a54aab1d5814c953cab2616f10a",
+  "limits": "Partial literal mapping, whole-image attribute prediction only; not localization or causal explanation."
+}

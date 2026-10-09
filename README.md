@@ -37,3 +37,21 @@ python -m pytest tests -q
 第二轮 `validation_mixup_v2` 使用概念空间 mixup、独立非线性确定性分支、预先记录的校准/概念约束选模。第三轮 `validation_predictive_v3` 进一步将概念目标改为预测概念概率的边际 Bernoulli 似然，并同时保留期望概念 BCE 作诊断：期望每次采样的 BCE 与平均概率对应的 BCE 含义不同，前者会因凸性惩罚噪声。每个版本保留独立源码、协议、断点与输出目录，旧结果保持原样。
 
 这些结果均来自验证集，尚未进行最终测试或独立五种子验证。研究状态与图表位于主项目 `Essay/PS-Shared/report/`。软件和上游来源由各协议与 `UPSTREAM.json` 记录；新增模型、特征和逐样本预测仍保存在本地忽略目录。
+
+## 第五轮：联合训练与人工属性
+
+前四轮 42 组对照已完成。第五轮在 CBL 学习期间注入语义方向的特征噪声。三个数据集的方向只用原训练集计算；CUB 为 509 个概念 / 200 个共享类别方向，CIFAR-100 为 583 / 96，CIFAR-10 为 61 / 9。噪声协方差为方向加权外积之和，保持半正定；经过非线性 CBL 后不保证同样的零相关结构。
+
+八类对照匹配初始化、数据顺序、分类头、优化步数和每图 CBL 前向次数。共享关闭采样对照保留相同生成器、尺度先验与能量项，仅关闭采样。两套预登记配置各训练 40 epoch。
+
+CUB 的 16 组已完成并冻结所选权重。用两组独立随机数、各 256 次采样复核，共享噪声验证准确率为 68.75% / 68.80%，没有超过关闭训练采样对照的 68.95%。干净联合微调为 68.85% / 68.80%。人工属性保守映射覆盖 68/312 属性，只在训练集筛选属性与设阈值，验证排除 certainty < 3。原基线属性 BA / AUROC 为 67.43% / 72.52%；共享噪声 BA 略降，不能宣称解释性能提升。此检查只评估整图属性预测，没有定位或因果干预结论。CIFAR-10/100 的同配置对照正在运行。
+
+```bash
+python -m ps_pi.directions --dataset cub
+python -m ps_pi.joint_screen --dataset cub
+python -m ps_pi.native_attributes --annotations /path/to/native/annotations
+python -m ps_pi.joint_audit --dataset cub --samples 256
+python -m ps_pi.export_joint
+```
+
+精简图表和来源摘要见 [主要进展](reports/validation_v1/主要实验进展.md)，登记方案见 [联合训练协议](reports/validation_joint_v5/registered_plan.json)。当前 28 项测试通过。Goal 保持 active；仍需可靠优于最强对照的收益、锁定方案后的独立五种子和最终测试证据。
