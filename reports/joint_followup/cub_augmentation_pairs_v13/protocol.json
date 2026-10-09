@@ -1,0 +1,20 @@
+{
+  "dataset": "cub",
+  "split": "train",
+  "rows": 3994,
+  "views": 2,
+  "debug": false,
+  "seed": 13001,
+  "batch_size": 256,
+  "source_sha256": "2afd02749dead4e3260f957e4f29cff48d6816687cef46295f43ed706c17b8fd",
+  "splits_source_sha256": "6f906462fa9d3787d64f57807e64c23eae21a0aa6b572b321be3b0f7f6583ca5",
+  "manifest_sha256": "fcf363acdfd2cfd3c05ceb7fdaee0baa42e22a54aab1d5814c953cab2616f10a",
+  "training_features_sha256": "315643581046419bc1b5b43d6df15919e4fdc6a04fdb79ca93a6912cffb44ce5",
+  "training_image_content_sha256": "68b61e36a237998e77d3c8b47ef8937ea89c23c05297844f997315d901399539",
+  "clip_weight_sha256": "afeb0e10f9e5a86da6080e35cf09123aca3b358a0c3e3b6c78a7b63bc04b6762",
+  "transform": "original CLIP resize+center crop; horizontal flip p0.5; 224 crop with 8px reflection padding; original RGB/tensor/normalization",
+  "encoder": "frozen RN50 float penultimate2048, identity attnpool output projection",
+  "val_images_opened": false,
+  "test_images_opened": false,
+  "limits": "Observed weak-view differences; no assumption of exact native-attribute or Gaussian manifold invariance."
+}

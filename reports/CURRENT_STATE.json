@@ -1,10 +1,10 @@
 {
-  "time": 1791530165.1442792,
+  "time": 1791530626.2566733,
   "goal_status": "active",
   "completed_baselines": 3,
   "baseline_models": 6,
-  "complete_reported_cohort_controls": 186,
-  "completed_joint_cohort_controls": 128,
+  "complete_reported_cohort_controls": 202,
+  "completed_joint_cohort_controls": 144,
   "previous_cohort_controls": 42,
   "completed_joint_cohorts": [
     [
@@ -38,23 +38,14 @@
     [
       "cub",
       "validation_joint_feature_mixup_v10"
+    ],
+    [
+      "cub",
+      "validation_joint_robust_mixup_v12"
     ]
   ],
-  "running_queues": {
-    "cub_joint_robust_mixup_v12": {
-      "phase": "audit",
-      "module": "joint_robust_mixup_audit",
-      "completed_training": 16,
-      "pid": 1516058,
-      "time": 1791530163.735212
-    }
-  },
-  "launch": {
-    "manager_pid": 1516058,
-    "module": "ps_pi.joint_robust_mixup_screen",
-    "output": "outputs/cub/validation_joint_robust_mixup_v12"
-  },
-  "tested_protocol_checks": 43,
+  "running_queues": {},
+  "tested_protocol_checks": 44,
   "test_features_encoded": false,
   "test_used_for_selection": false,
   "five_seed_final_evidence": false,
@@ -67,7 +58,7 @@
     "evaluation_split": "val"
   },
   "current_result": "CUB deterministic69.45; five conditional adaptation seeds shared-minus-sampling-disabled -0.02pp, paired t95[-0.19,+0.15]; no reliable stochastic gain; native BA mean -0.24pp",
-  "next_stage": "isolate expected per-draw classification risk vs marginal task NLL; fixed marginal concept objective, mixup and matched controls; auto audits",
+  "next_stage": "Construct train-only noise covariance from observed weak-view feature differences; all modeled validation conclusions remain unchanged; goal active",
   "report": "../Essay/PS-Shared/report/主要实验进展.md",
   "conditional_replication_new_runs": 16,
   "conditional_adaptation_seeds": [
@@ -79,5 +70,15 @@
   ],
   "complete_baseline_training_seeds": [
     42
-  ]
+  ],
+  "latest_complete_training_queue": "cub_joint_robust_mixup_v12",
+  "training_nuisance_cache": {
+    "phase": "complete",
+    "rows": 3994,
+    "views": 2,
+    "split": "train",
+    "val_used": false,
+    "test_used": false,
+    "original_feature_alignment_relative_rms": 0.0
+  }
 }

@@ -1,0 +1,9 @@
+{
+  "rows_checked": 256,
+  "relative_rms_error": 0.0,
+  "original_encoding_batch_size": 256,
+  "alignment_uses_original_preparation_batch": true,
+  "split": "train",
+  "val_used": false,
+  "test_used": false
+}
