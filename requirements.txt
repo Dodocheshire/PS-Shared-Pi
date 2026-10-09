@@ -1,0 +1,10 @@
+torch
+torchvision
+numpy
+scikit-learn
+openai-clip
+tqdm
+loguru
+pytorchcv
+torcheval
+pytest

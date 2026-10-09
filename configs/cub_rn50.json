@@ -1,0 +1,16 @@
+{
+  "dataset": "cub",
+  "Tconf": 0.2,
+  "Tmerge": 0.9998,
+  "K_indep": 1,
+  "cbl_layer_num": 2,
+  "cbl_bias": true,
+  "cbl_batch_size": 32,
+  "cbl_lr": 0.0002,
+  "cbl_steps": 30000,
+  "weight_decay": 1e-05,
+  "lam": 0.0008,
+  "n_iters": 10000,
+  "saga_batch_size": 256,
+  "seed": 42
+}

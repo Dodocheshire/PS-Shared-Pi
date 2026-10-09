@@ -1,0 +1,16 @@
+{
+  "dataset": "cifar10",
+  "Tconf": 0.2,
+  "Tmerge": 0.9996,
+  "K_indep": 5,
+  "cbl_layer_num": 2,
+  "cbl_bias": true,
+  "cbl_batch_size": 1024,
+  "cbl_lr": 0.0004,
+  "cbl_steps": 20000,
+  "weight_decay": 0.0,
+  "lam": 0.0007,
+  "n_iters": 10000,
+  "saga_batch_size": 256,
+  "seed": 42
+}
