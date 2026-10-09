@@ -1,9 +1,9 @@
 {
-  "time": 1791529649.6688604,
+  "time": 1791530165.1442792,
   "goal_status": "active",
   "completed_baselines": 3,
   "baseline_models": 6,
-  "complete_reported_cohort_controls": 170,
+  "complete_reported_cohort_controls": 186,
   "completed_joint_cohort_controls": 128,
   "previous_cohort_controls": 42,
   "completed_joint_cohorts": [
@@ -41,25 +41,20 @@
     ]
   ],
   "running_queues": {
-    "cub_feature_mixup_replication_v11": {
-      "phase": "running",
-      "pid": 1509988,
-      "child_pid": 1511552,
-      "index": 5,
-      "total": 16,
-      "case": {
-        "seed": 2,
-        "mode": "diag_noise"
-      },
-      "time": 1791529634.438181
+    "cub_joint_robust_mixup_v12": {
+      "phase": "audit",
+      "module": "joint_robust_mixup_audit",
+      "completed_training": 16,
+      "pid": 1516058,
+      "time": 1791530163.735212
     }
   },
   "launch": {
-    "manager_pid": 1509988,
-    "module": "ps_pi.feature_mixup_replication",
-    "output": "outputs/cub/validation_feature_mixup_replication_v11"
+    "manager_pid": 1516058,
+    "module": "ps_pi.joint_robust_mixup_screen",
+    "output": "outputs/cub/validation_joint_robust_mixup_v12"
   },
-  "tested_protocol_checks": 41,
+  "tested_protocol_checks": 43,
   "test_features_encoded": false,
   "test_used_for_selection": false,
   "five_seed_final_evidence": false,
@@ -71,7 +66,18 @@
     "mapping_and_thresholds_split": "train",
     "evaluation_split": "val"
   },
-  "current_result": "CUB strongest deterministic 69.45%; feature-mixup shared independent MC69.40 vs same-preset sampling-disabled69.30; diagonal69.35..69.40; native BA decreases0.17pp; conditional replication ongoing",
-  "next_stage": "four further adaptation seeds under fixed baseline42, preset A; not final independent-baseline evidence",
-  "report": "../Essay/PS-Shared/report/主要实验进展.md"
+  "current_result": "CUB deterministic69.45; five conditional adaptation seeds shared-minus-sampling-disabled -0.02pp, paired t95[-0.19,+0.15]; no reliable stochastic gain; native BA mean -0.24pp",
+  "next_stage": "isolate expected per-draw classification risk vs marginal task NLL; fixed marginal concept objective, mixup and matched controls; auto audits",
+  "report": "../Essay/PS-Shared/report/主要实验进展.md",
+  "conditional_replication_new_runs": 16,
+  "conditional_adaptation_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "complete_baseline_training_seeds": [
+    42
+  ]
 }

@@ -23,6 +23,21 @@ METHODS=[('clean','Clean joint','#555555'),('mean_only','Mean only','#0072B2'),
 
 def main():
     report=ROOT.parent/'Essay/PS-Shared/report';sources=[];records=[];selected={}
+    replication_path=report/'conditional_seed_replication.json'
+    replication=json.loads(replication_path.read_text()) if replication_path.exists() else None
+    additional=0 if replication is None else replication['new_training_runs']
+    replication_text=''
+    if replication is not None:
+        contrast=next(c for c in replication['contrasts'] if c['control']=='shared_no_sampling')
+        lo,hi=contrast['conditional_t95_pp']
+        ba=np.mean([r['native_ba_delta_pp'] for r in replication['rows'] if r['mode']=='shared_noise'])
+        replication_text=f'''
+![五个适配种子的配对复验](05_conditional_seed_replication.png)
+
+**目的：** 固定基线种子 42、原配置 A 和 mixup alpha=0.2，新增适配种子 1–4，与种子 0 合成五个条件种子的同容量、对角、关闭采样和共享对照。全部种子保留，独立 MC 不重选模型。
+
+**结论：** 共享噪声相对关闭采样的平均差值 **{contrast['mean_delta_pp']:+.2f} pp**，条件配对 95% t 区间 **[{lo:+.2f}, {hi:+.2f}] pp**，跨过零；相对同容量适配/对角噪声也没有可靠优势。首个种子的 +0.10 pp 没有稳定重复。共享属性 BA 平均改变 **{ba:+.2f} pp**，仍非解释提升。该区间仅覆盖适配种子变化，不覆盖完整基线、概念库或测试不确定性。
+'''
     fig,axes=plt.subplots(1,2,figsize=(11.5,7.0))
     fig.subplots_adjust(left=.25,right=.98,top=.85,bottom=.23,wspace=.30)
     for index,(dataset,version,label) in enumerate(COHORTS):
@@ -83,7 +98,7 @@ def main():
     plt.close(fig)
     with (report/'major_results.csv').open('w',newline='') as stream:
         writer=csv.DictWriter(stream,fieldnames=list(records[0]),lineterminator='\n');writer.writeheader();writer.writerows(records)
-    atomic_json({'completed_joint_cohort_runs':16*len(COHORTS),'previous_cohort_runs':42,'total_reported_registered_runs':16*len(COHORTS)+42,
+    atomic_json({'completed_joint_cohort_runs':16*len(COHORTS),'previous_cohort_runs':42,'total_reported_registered_runs':16*len(COHORTS)+42+additional,'screen_runs':16*len(COHORTS)+42,'conditional_replication_new_runs':additional,'conditional_replication':replication,
                  'training_seeds':1,'baseline_seed':42,'adaptation_seed':0,'test_used':False,'five_seed_verified':False,
                  'selection':'original MC selection; no case/epoch re-selection from high-sample audit',
                  'limits':'Repeated deterministic controls across objective/scale versions are not independent training replicates. CEA is the paper compactness proxy, not human semantic quality.',
@@ -100,9 +115,9 @@ def main():
         table.append(f"| {label} | {percent(deterministic)} | {percent(shared)} |")
     primary=f"""# PS-CBM 主要实验进展
 
-已完成三个 RN50 基线、{16*len(COHORTS)+42} 条注册验证运行（不含调试运行）。**最强 CUB 确定性适配达到 69.45%，尚未证明随机分量的额外收益。** 这些是基线种子 42、适配种子 0 的探索结果；重复控制不算独立种子。测试集保持隔离，最终五种子验证尚未完成。
+已完成三个 RN50 基线、{16*len(COHORTS)+42+additional} 条注册验证运行（不含调试运行）。**最强 CUB 确定性适配达到 69.45%，尚未证明随机分量的额外收益。** 主队列为基线种子 42、适配种子 0；另有固定基线下五个适配种子的条件复验，仍不是五个独立完整基线。重复控制不算独立种子。测试集保持隔离，最终五种子验证尚未完成。
 
-![完整单种子基线](02_complete_baselines.png)
+[完整基线图](02_complete_baselines.png)
 
 **目的：** 按官方文件名划分和配置建立基线，区分官方末轮权重与正确保存的最佳验证权重。
 
@@ -114,7 +129,7 @@ def main():
 
 | 完整队列 | 最强确定性对照 | 共享噪声（原选择固定后复核） |
 |---|---:|---:|
-"""+'\n'.join(table)+"""
+"""+'\n'.join(table)+f"""
 
 | 实验 | 目的 | 结论 |
 |---|---|---|
@@ -126,11 +141,12 @@ def main():
 | 原稀疏分类头适配（16 条） | 让已有稀疏头适应新的概念分布，所有对照更新相同非零支持 | 663 个原非零位置保持不变；确定性适配达到 69.45%，共享模型复核为 69.30%。 |
 | 特征层 mixup（16 条） | 改善 CBL 训练覆盖，固定 alpha=0.2，使用软目标边际似然 | 共享模型复核 69.40%，比同配置关闭采样高 0.10 pp；对角噪声 69.35%–69.40%，共享结构没有额外优势。 |
 
-**解释检查：** CUB 原始人工属性按明确颜色/部位保守映射，覆盖 **68/312 属性**；筛选及阈值仅用训练集，验证排除 certainty < 3。基线 BA / AUROC 为 **67.43% / 72.52%**。最近两轮共享方案 BA 仍略降（约 −0.10 至 −0.17 pp），不能宣称解释提升；覆盖有限，且没有定位或因果干预证据。
+{replication_text}
+**解释检查：** CUB 原始人工属性按明确颜色/部位保守映射，覆盖 **68/312 属性**；筛选及阈值仅用训练集，验证排除 certainty < 3。基线 BA / AUROC 为 **67.43% / 72.52%**。共享方案 BA 仍略降，不能宣称解释提升；覆盖有限，且没有定位或因果干预证据。
 
-**效率与限制：** 概念数不变，CEA 随准确率同比变化；CEA 是论文紧凑度代理，不能替代人工属性质量。图中横线是 Monte Carlo 范围，**不是置信区间**。解析高斯概念均值用于区分非线性均值变化与随机推理效果，不替代重新训练的确定性对照。
+**效率与限制：** 概念数不变，CEA 随准确率同比变化；CEA 是论文紧凑度代理，不能替代人工属性质量。对照总览（04）横线是 Monte Carlo 范围，**不是置信区间**；条件复验（05）横线是注明范围的适配种子配对 t 区间。解析高斯概念均值用于区分非线性均值变化与随机推理效果，不替代重新训练的确定性对照。
 
-**继续迭代：** 特征 mixup 首种子的微小差异正在按固定配置用其余四个适配种子复验，配对比较同容量适配、对角噪声、关闭采样及共享噪声。它们共用基线种子 42，不能代替五个独立完整基线。尚未完成的案例不纳入图表。Goal 保持 active；仍需可靠候选、独立五种子、配对区间及最终测试。
+**继续迭代：** 特征 mixup 的条件复验未确认可靠优势。新队列仅把分类目标改为逐次采样交叉熵，概念边际似然、均值保持及对照预算保持一致，检验随机训练稳定性。尚未完成的案例不纳入图表。Goal 保持 active；仍需可靠候选、独立五种子、配对区间及最终测试。
 
 主要数值、CEA、属性变化和来源哈希见 [CSV](major_results.csv)、[来源汇总](major_results.json)。早期详细对照保留在 [首轮 CSV](validation_v1.csv)、[联合训练复核](joint_v5_summary.json)。
 """

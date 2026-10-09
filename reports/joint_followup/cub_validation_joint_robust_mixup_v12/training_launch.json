@@ -1,0 +1,5 @@
+{
+  "manager_pid": 1516058,
+  "module": "ps_pi.joint_robust_mixup_screen",
+  "output": "outputs/cub/validation_joint_robust_mixup_v12"
+}

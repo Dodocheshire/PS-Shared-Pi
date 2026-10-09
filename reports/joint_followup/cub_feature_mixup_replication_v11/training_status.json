@@ -1,12 +1,8 @@
 {
-  "phase": "running",
-  "pid": 1509988,
-  "child_pid": 1511552,
-  "index": 5,
-  "total": 16,
-  "case": {
-    "seed": 2,
-    "mode": "diag_noise"
-  },
-  "time": 1791529634.438181
+  "phase": "complete",
+  "completed_training": 16,
+  "baseline_seed": 42,
+  "final_evidence": false,
+  "test_used": false,
+  "time": 1791529806.4611866
 }
