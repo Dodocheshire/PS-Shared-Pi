@@ -1,0 +1,39 @@
+{
+  "dataset": "cifar10",
+  "split": "val",
+  "n": 5000,
+  "mc_samples": 128,
+  "antithetic": true,
+  "seed": 901,
+  "test_used": false,
+  "baseline_sha256": "2ef42fbb02449b4a34305ea785cba1c17b24bf2a5073f989635ec146f24cfdd9",
+  "concepts_sha256": "0dbbb95546cc53da4bd20ca25d29945da642d455259b8fc5143f6fa0748ecbd1",
+  "pseudo_labels_sha256": "5931fb9846a90d8ccbf81cc63db508c9ac3d3eab716920efe707955ee4017488",
+  "source_sha256": "8555bde0978083cb89b73740f2a05a15cab9e8d55dfb4b468fcda88f949cac1c",
+  "rows": [
+    {
+      "scale": 0.03,
+      "clean_bce": 0.06815207749605179,
+      "predictive_bce": 0.06807645282745362,
+      "expected_bce": 0.06866693667173386
+    },
+    {
+      "scale": 0.1,
+      "clean_bce": 0.06815207749605179,
+      "predictive_bce": 0.06767137819528579,
+      "expected_bce": 0.07393935527801514
+    },
+    {
+      "scale": 0.2,
+      "clean_bce": 0.06815207749605179,
+      "predictive_bce": 0.06913453508615494,
+      "expected_bce": 0.09207583326101303
+    },
+    {
+      "scale": 0.3,
+      "clean_bce": 0.06815207749605179,
+      "predictive_bce": 0.07528535794019699,
+      "expected_bce": 0.12427534041404724
+    }
+  ]
+}

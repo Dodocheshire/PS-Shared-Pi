@@ -8,3 +8,5 @@ loguru
 pytorchcv
 torcheval
 pytest
+
+matplotlib

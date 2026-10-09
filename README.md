@@ -19,3 +19,21 @@ python -m ps_pi.baseline --dataset cifar10 --seed 42
 后续目标是用部分共享概念的结构约束 Pi 噪声，先以验证集筛选方案，再锁定方案进行独立五种子实验。必须保留仅均值、同容量确定性适配、固定随机噪声，以及同一个 Pi 模型关闭尺度的对照。只有随机分量优于这些对照时，才将增益归因于噪声。解释、校准和概念效率同时检查。当前尚无新的正式性能提升结论。
 
 训练特征、模型权重和生成运行在 `.gitignore` 中，仅保留本地。简明主要结果持续整理到主项目 `Essay/PS-Shared/report/`。
+
+## 验证集上的噪声迭代
+
+`ps_pi.noise` 根据预测概念生成均值、对角尺度与共享因子尺度。共享因子的支持由训练阶段合并的概念类别集合确定，仅关联同一共享组的概念，协方差保持半正定。推理不接收真实类别。固定 CBL、标准化与稀疏分类头；仅训练噪声生成器。配套仅均值、同参数数确定性适配、对角噪声和固定高斯对照，并评估同一 Pi 模型关闭尺度与全部关闭扰动的结果。
+
+```bash
+python -m ps_pi.screen --prepare-remaining
+python -m ps_pi.screen_mixup --dataset cifar10
+python -m ps_pi.screen_predictive --dataset cifar10
+python -m ps_pi.export_validation
+python -m pytest tests -q
+```
+
+首轮 `validation_v1` 使用分类预测概率的 Monte Carlo 边际似然、期望概念 BCE 和扰动能量，已完成九组完整验证对照。90.94% 的最高验证准确率与同容量适配相同，关闭随机尺度后准确率相同，且 NLL/ECE 变差；因此当前没有可归因于随机分量的可靠增益。
+
+第二轮 `validation_mixup_v2` 使用概念空间 mixup、独立非线性确定性分支、预先记录的校准/概念约束选模。第三轮 `validation_predictive_v3` 进一步将概念目标改为预测概念概率的边际 Bernoulli 似然，并同时保留期望概念 BCE 作诊断：期望每次采样的 BCE 与平均概率对应的 BCE 含义不同，前者会因凸性惩罚噪声。每个版本保留独立源码、协议、断点与输出目录，旧结果保持原样。
+
+这些结果均来自验证集，尚未进行最终测试或独立五种子验证。研究状态与图表位于主项目 `Essay/PS-Shared/report/`。软件和上游来源由各协议与 `UPSTREAM.json` 记录；新增模型、特征和逐样本预测仍保存在本地忽略目录。
