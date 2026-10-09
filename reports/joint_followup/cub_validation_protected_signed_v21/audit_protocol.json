@@ -1,0 +1,50 @@
+{
+  "dataset": "cub",
+  "samples": 256,
+  "independent_mc_seeds": [
+    9071,
+    9072
+  ],
+  "attribute_mc_seed": 9081,
+  "checkpoint_selection_frozen": true,
+  "test_used": false,
+  "source_sha256": "d723bddb8ba55fa91bdb3b1fd2d55ed8730656aea8a8e5279f48644197d6a61c",
+  "baseline_sha256": "a9185fbd4e7e3b6384a80bfc8a40002ec7ff68be6e1059e410e1f0a108865614",
+  "compact_checkpoint_sha256": "80541323bd16e76be62a876f7eb64e8391bf42459c4377de51a95b7c34a01973",
+  "signed_geometry_sha256": "32a64129e3ddd77cfb4af22c56c2798091ce8be5f2af163f059b77a17556c340",
+  "source_dependencies_sha256": {
+    "protected_concept_forward.py": "848ba2ed5e21d73e28078debd5205a502069d3536d0a6976454c0f1cc8508c54",
+    "protected_concepts.py": "f17a56155b33067cae1c740518809a674abde2cef47ea696054f34845fdc67c4",
+    "all_output_mean_noise.py": "eba449e63f924ce2844c31017831732967d2f53f7dee784f79d0f68a09afc057",
+    "signed_shared_noise.py": "8db60901396a78c682c2c9ef935cc571aad7e5bcf84a39d5606fa0c3330fa6fd",
+    "signed_shared_geometry.py": "1c0e6b2eb6c5d4f1af60fd15c98d2cfc509d8a5347b5233f2daefa659db4051e",
+    "signed_concept_forward.py": "53b6caec99ef6f2a4913545763da50faca2befdde817820bd12a325f25d40b03",
+    "protected_signed_train.py": "78ca99c87b2340782b68c6dc1ca833c0599f9d96696745a23ea9fbe8c1e0d212",
+    "compact_concept_forward.py": "8c903be44ba0aa6fbe02ee1492dbd487510bfee6e23c7cb1a465aea682f84754",
+    "compact_outputs.py": "584c01a375a9454b85eafbdb0f75fd50955f98d8eeec6720bff06cfb46bfc2c3",
+    "bottleneck_noise.py": "27776338e1c22f92fe0999eaba24cc7d1d0ec90ed4ea8e119c40465655817c3f",
+    "joint_noise.py": "705208f58ad0ebb2089482292b5894198614bba18f65a1a6b2198ba4803e1de2",
+    "noise.py": "a664ad766799729a36e196769aa5abd9dd8e418f39cbd883e8bbb204858317fb",
+    "directions.py": "6e20a11786e2af3a8342d8e378e1e8443d7816558422fdb91a63d6e3b459e2b4"
+  },
+  "checkpoint_sha256": {
+    "outputs/cub/validation_protected_signed_v21/adapter_matched_seed0_cw1_lr1e-05/model.pt": "27b65b4d3dc3b91a77174e82938ab4213b110e50949173cff3dd3be763d31ba6",
+    "outputs/cub/validation_protected_signed_v21/adapter_matched_seed0_cw5_lr3e-06/model.pt": "6622bb8a06ef33f104943efc5d21d732891da633bc705026beb34b8cb26d00f5",
+    "outputs/cub/validation_protected_signed_v21/clean_seed0_cw1_lr1e-05/model.pt": "95da5d6e48cb1524add7256910801183294a1243a6c1322416ea8b8c96d662de",
+    "outputs/cub/validation_protected_signed_v21/clean_seed0_cw5_lr3e-06/model.pt": "79d9c31ca71981294e7538569b335585d5f6821a52e3c2b2939d084a1b7318e9",
+    "outputs/cub/validation_protected_signed_v21/diag_noise_seed0_cw1_lr1e-05/model.pt": "59b6fc43245ea8318eaac2b73bbf4a4f82aba1bde802d389582fb6384ad147cf",
+    "outputs/cub/validation_protected_signed_v21/diag_noise_seed0_cw5_lr3e-06/model.pt": "516eb2fc8694d76e9743fa9c60ae243aacf3a1bb70caf7ff92b6fb92d473b466",
+    "outputs/cub/validation_protected_signed_v21/fixed_isotropic_seed0_cw1_lr1e-05/model.pt": "9eb045662dd55e4ce7dd3128cbc98998ecdc9b8cef8979315fa99ea81ac2e7ab",
+    "outputs/cub/validation_protected_signed_v21/fixed_isotropic_seed0_cw5_lr3e-06/model.pt": "ccf40ef63ff569355a2aa1f2efd0bb5e49e3cc72e0db7c21881f9868c5990a28",
+    "outputs/cub/validation_protected_signed_v21/fixed_structured_seed0_cw1_lr1e-05/model.pt": "da7d9340f96e12489b71d2687af02a8cfdae4b9bd2bfa8b38c15abc1a0e46a99",
+    "outputs/cub/validation_protected_signed_v21/fixed_structured_seed0_cw5_lr3e-06/model.pt": "fd326ec59ea9911b841c7c17473718ff6c9ca445399ba40a3b903f3d11b1f4b0",
+    "outputs/cub/validation_protected_signed_v21/mean_only_seed0_cw1_lr1e-05/model.pt": "e877215d28c16fda5116c054b0723a7196102a7dc15f24713f12ba178a833261",
+    "outputs/cub/validation_protected_signed_v21/mean_only_seed0_cw5_lr3e-06/model.pt": "e072969ed05eb96e429af7d1305d6b1c5a56cbde3a7fb0c2d02a73b620a749a9",
+    "outputs/cub/validation_protected_signed_v21/shared_no_sampling_seed0_cw1_lr1e-05/model.pt": "451d1ffdf367b3721785ba6bee2d6e5a486fd4f2906e4a809d68199ecfdce5c1",
+    "outputs/cub/validation_protected_signed_v21/shared_no_sampling_seed0_cw5_lr3e-06/model.pt": "65ca6c895e7ffd593f677581ec67b18b712b998093dab4fe8940a940850dc6ee",
+    "outputs/cub/validation_protected_signed_v21/shared_noise_seed0_cw1_lr1e-05/model.pt": "144a878e3ee83600f7eefd94f21e9973c496e7cc57ba034801541890338fa75a",
+    "outputs/cub/validation_protected_signed_v21/shared_noise_seed0_cw5_lr3e-06/model.pt": "58eac829f3da38e365d1b2a0090cd45b69ba7d1007cee18d93ae254fcc7091de"
+  },
+  "attribute_protocol_sha256": "82fcc787327e38792d60ad31eb0c103b2338a7c8f2806fb167fe40d55c8f8308",
+  "annotation_sha256": "8fc84c850a4ac698e64af3d260edc5a336640d6ce21259bd40dce692e89db579"
+}

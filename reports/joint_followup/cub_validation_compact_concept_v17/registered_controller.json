@@ -1,0 +1,12 @@
+{
+  "pid": 1641504,
+  "launched_at": 1791539222.7475693,
+  "command": [
+    "/home/pengcheng/miniconda3/envs/pi-cbm/bin/python",
+    "-u",
+    "-m",
+    "ps_pi.compact_concept_screen"
+  ],
+  "test_used": false,
+  "final_five_seed_evidence": false
+}

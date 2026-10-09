@@ -1,0 +1,52 @@
+{
+  "split": "train",
+  "validation_used": false,
+  "test_used": false,
+  "rows": 512,
+  "samples": 32,
+  "subset_seed": 7718,
+  "view_seed": 7719,
+  "mixup_seed": 7720,
+  "mc_seed": 7721,
+  "mixup_weight": 0.9647676771003324,
+  "baseline_sha256": "a9185fbd4e7e3b6384a80bfc8a40002ec7ff68be6e1059e410e1f0a108865614",
+  "compact_checkpoint_sha256": "80541323bd16e76be62a876f7eb64e8391bf42459c4377de51a95b7c34a01973",
+  "train_data_sha256": "315643581046419bc1b5b43d6df15919e4fdc6a04fdb79ca93a6912cffb44ce5",
+  "source_sha256": "913b6c7d172425f31de3c803f5f423beff794e74b0c92ef06a61fab3aef6ec73",
+  "expected_task_ce": 0.9320513606071472,
+  "marginal_task_nll": 0.922645092010498,
+  "gradient_chunks": {
+    "mean": {
+      "coordinates": 272,
+      "expected_gradient_norm": 0.014627965167164803,
+      "marginal_gradient_norm": 0.014282544143497944,
+      "expected_positive_fraction": 0.5220588445663452,
+      "marginal_positive_fraction": 0.5183823704719543,
+      "cosine": 0.9998503923416138,
+      "expected_gradient_sum": -0.006496476009488106,
+      "marginal_gradient_sum": -0.005749180912971497
+    },
+    "diagonal_scale": {
+      "coordinates": 272,
+      "expected_gradient_norm": 0.001650373451411724,
+      "marginal_gradient_norm": 0.0008079794934019446,
+      "expected_positive_fraction": 0.9595588445663452,
+      "marginal_positive_fraction": 0.8529411554336548,
+      "cosine": 0.748935341835022,
+      "expected_gradient_sum": 0.016455724835395813,
+      "marginal_gradient_sum": 0.006626029033213854
+    },
+    "shared_scale": {
+      "coordinates": 197,
+      "expected_gradient_norm": 0.00024148027296178043,
+      "marginal_gradient_norm": 0.00011902493133675307,
+      "expected_positive_fraction": 0.893401026725769,
+      "marginal_positive_fraction": 0.7817258834838867,
+      "cosine": 0.0006246566772460938,
+      "expected_gradient_sum": 0.0013222192646935582,
+      "marginal_gradient_sum": 0.00038760926690883934
+    }
+  },
+  "interpretation": "Positive scale-logit gradient is an initial shrinking tendency under descent. This compares task terms only on one fixed training subset, not complete optimizer updates or validation gains.",
+  "next_change": "If expected task risk shrinks random directions, test marginal class likelihood under the same protected architecture and all controls; do not infer performance from diagnostic."
+}

@@ -1,0 +1,46 @@
+{
+  "iteration": 17,
+  "issue": "zero mean standardized-to-raw reconstruction roundoff changes tied native score rankings; strict AUROC gate rejects nominally identical deterministic initial state",
+  "records": [
+    {
+      "case": "adapter_matched_seed0_cw1_lr1e-05",
+      "initial_raw_auroc_delta": -1.075132871619644e-08,
+      "initial_correct_delta": 0,
+      "initial_ba_delta": 0.0
+    },
+    {
+      "case": "adapter_matched_seed0_cw5_lr3e-06",
+      "initial_raw_auroc_delta": -1.075132871619644e-08,
+      "initial_correct_delta": 0,
+      "initial_ba_delta": 0.0
+    },
+    {
+      "case": "mean_only_seed0_cw1_lr1e-05",
+      "initial_raw_auroc_delta": -1.075132871619644e-08,
+      "initial_correct_delta": 0,
+      "initial_ba_delta": 0.0
+    },
+    {
+      "case": "mean_only_seed0_cw5_lr3e-06",
+      "initial_raw_auroc_delta": -1.075132871619644e-08,
+      "initial_correct_delta": 0,
+      "initial_ba_delta": 0.0
+    },
+    {
+      "case": "shared_no_sampling_seed0_cw1_lr1e-05",
+      "initial_raw_auroc_delta": -1.075132871619644e-08,
+      "initial_correct_delta": 0,
+      "initial_ba_delta": 0.0
+    },
+    {
+      "case": "shared_no_sampling_seed0_cw5_lr3e-06",
+      "initial_raw_auroc_delta": -1.075132871619644e-08,
+      "initial_correct_delta": 0,
+      "initial_ba_delta": 0.0
+    }
+  ],
+  "does_not_relax_registered_gates": true,
+  "checkpoints_reselected": false,
+  "resolution": "new V18 uses raw + standardized perturbation residual, separately registered protected architecture",
+  "test_used": false
+}

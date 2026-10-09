@@ -1,0 +1,7 @@
+{
+  "reason": "Original full-output and compact-output GPU linear kernels differ by floating point roundoff. Exact native-output protection must compare anchored model to its same-shape clean compact reference. Full-model native metrics and max numerical difference retained separately.",
+  "training_checkpoints_changed": false,
+  "training_settings_changed": false,
+  "test_features_existed": false,
+  "stage": "validation audit before held-out test access"
+}

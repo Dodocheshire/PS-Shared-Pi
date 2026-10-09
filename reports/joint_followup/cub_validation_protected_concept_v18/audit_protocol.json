@@ -1,0 +1,45 @@
+{
+  "dataset": "cub",
+  "samples": 256,
+  "independent_mc_seeds": [
+    9071,
+    9072
+  ],
+  "attribute_mc_seed": 9081,
+  "checkpoint_selection_frozen": true,
+  "test_used": false,
+  "source_sha256": "f10261acf2aff5b289faab4134907aa48d660afe15a802e05a3be67dbc32357e",
+  "baseline_sha256": "a9185fbd4e7e3b6384a80bfc8a40002ec7ff68be6e1059e410e1f0a108865614",
+  "compact_checkpoint_sha256": "80541323bd16e76be62a876f7eb64e8391bf42459c4377de51a95b7c34a01973",
+  "source_dependencies_sha256": {
+    "protected_concept_forward.py": "848ba2ed5e21d73e28078debd5205a502069d3536d0a6976454c0f1cc8508c54",
+    "protected_concepts.py": "f17a56155b33067cae1c740518809a674abde2cef47ea696054f34845fdc67c4",
+    "protected_concept_train.py": "81517fef87155a9df101122a7c81ff5157934b66636078e79b25b5e543b5bd4b",
+    "compact_concept_forward.py": "8c903be44ba0aa6fbe02ee1492dbd487510bfee6e23c7cb1a465aea682f84754",
+    "compact_outputs.py": "584c01a375a9454b85eafbdb0f75fd50955f98d8eeec6720bff06cfb46bfc2c3",
+    "bottleneck_noise.py": "27776338e1c22f92fe0999eaba24cc7d1d0ec90ed4ea8e119c40465655817c3f",
+    "joint_noise.py": "705208f58ad0ebb2089482292b5894198614bba18f65a1a6b2198ba4803e1de2",
+    "noise.py": "a664ad766799729a36e196769aa5abd9dd8e418f39cbd883e8bbb204858317fb",
+    "directions.py": "6e20a11786e2af3a8342d8e378e1e8443d7816558422fdb91a63d6e3b459e2b4"
+  },
+  "checkpoint_sha256": {
+    "outputs/cub/validation_protected_concept_v18/adapter_matched_seed0_cw1_lr1e-05/model.pt": "facb03c818c64c876ed6fe7622c7a85f645132a7aa0d573f3af04af9509adb56",
+    "outputs/cub/validation_protected_concept_v18/adapter_matched_seed0_cw5_lr3e-06/model.pt": "194d48c0152d05e1ee37352016492f31a06b1095d65c8ee1b6fb263aa72c7909",
+    "outputs/cub/validation_protected_concept_v18/clean_seed0_cw1_lr1e-05/model.pt": "6c7edbdebc3a73120635f5db42fccb05a5b93c51a260e68bac6d3784bbc88567",
+    "outputs/cub/validation_protected_concept_v18/clean_seed0_cw5_lr3e-06/model.pt": "76bb70869a5451427c4c7b55f670a16aa61285c8e0eb7bcb872f4ff0ca876e47",
+    "outputs/cub/validation_protected_concept_v18/diag_noise_seed0_cw1_lr1e-05/model.pt": "f454d38dc20960295acedf019d0900faf12b9e77e0bd0f2da3a879d65eb53f6e",
+    "outputs/cub/validation_protected_concept_v18/diag_noise_seed0_cw5_lr3e-06/model.pt": "af860e1a9320e96725c01dbf75621b7fcc457ee1ba3b74beba31535d705df486",
+    "outputs/cub/validation_protected_concept_v18/fixed_isotropic_seed0_cw1_lr1e-05/model.pt": "4af6052e37e7fa2a4b6eb63e661324ac415529285605893d3db60c2ed9cdbfbf",
+    "outputs/cub/validation_protected_concept_v18/fixed_isotropic_seed0_cw5_lr3e-06/model.pt": "097c1b6b31116bfcc9d0d7d6628fc909c68c4991fcdf7ef3d7e1bc2ed4f68ad9",
+    "outputs/cub/validation_protected_concept_v18/fixed_structured_seed0_cw1_lr1e-05/model.pt": "de09b4552d2f27aaa7599e22369a5ff2f6c4c8f3bbf5b5275446db210bdf7bc4",
+    "outputs/cub/validation_protected_concept_v18/fixed_structured_seed0_cw5_lr3e-06/model.pt": "72a1aa5ab3c7153c75c07acd01101b0fdb73e6088795f37d4d64d9e5f7f9ee90",
+    "outputs/cub/validation_protected_concept_v18/mean_only_seed0_cw1_lr1e-05/model.pt": "edc7e8304457ffe6c505c6ed29e99f6723265a4cd0268d6dfa778a3aa4359dad",
+    "outputs/cub/validation_protected_concept_v18/mean_only_seed0_cw5_lr3e-06/model.pt": "a16d6672e9b62f3d423ca652013feff80068a43a3f4b33c0cb6380b3ed2bcf92",
+    "outputs/cub/validation_protected_concept_v18/shared_no_sampling_seed0_cw1_lr1e-05/model.pt": "27f30dd6b0c960a1faab47017bea48235d568e61c7b3a250c824dbd824e1e724",
+    "outputs/cub/validation_protected_concept_v18/shared_no_sampling_seed0_cw5_lr3e-06/model.pt": "d00f1e67ebcb49eb1dc0371a233ffa97def81a0f285cfc90c5961faac7672e48",
+    "outputs/cub/validation_protected_concept_v18/shared_noise_seed0_cw1_lr1e-05/model.pt": "b9d2572ae363edf90eea1d0de306d65a91aed6b95a608944899fed61bd2099d3",
+    "outputs/cub/validation_protected_concept_v18/shared_noise_seed0_cw5_lr3e-06/model.pt": "53d2b09c3e8aaba9cadc6eab3986a0f35551d03a4893ff27b67ff6b2d72f2427"
+  },
+  "attribute_protocol_sha256": "82fcc787327e38792d60ad31eb0c103b2338a7c8f2806fb167fe40d55c8f8308",
+  "annotation_sha256": "8fc84c850a4ac698e64af3d260edc5a336640d6ce21259bd40dce692e89db579"
+}

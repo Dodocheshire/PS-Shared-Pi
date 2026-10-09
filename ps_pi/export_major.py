@@ -26,6 +26,42 @@ METHODS=[('clean','Clean joint','#555555'),('mean_only','Mean only','#0072B2'),
 
 def main():
     report=ROOT.parent/'Essay/PS-Shared/report';sources=[];records=[];selected={}
+    from .export_native_studies import main as export_native
+    export_native()
+    native=json.loads((report/'native_studies.json').read_text())
+    native_runs=native['completed_training_runs']
+    from .export_compact_study import main as export_compact
+    from .export_protected_study import main as export_protected
+    from .export_predictive_study import main as export_predictive
+    from .export_fullmean_study import main as export_fullmean
+    from .export_signed_study import main as export_signed
+    from .export_anchored_study import main as export_anchored
+    export_compact();export_protected();export_predictive();export_fullmean();export_signed();export_anchored()
+    compact=json.loads((report/'compact_study.json').read_text())
+    protected=json.loads((report/'protected_study.json').read_text())
+    predictive=json.loads((report/'predictive_study.json').read_text())
+    fullmean=json.loads((report/'fullmean_study.json').read_text())
+    signed=json.loads((report/'signed_study.json').read_text())
+    anchored=json.loads((report/'anchored_study.json').read_text())
+    concept_runs=compact['completed_training_runs']+protected['completed_training_runs']+predictive['completed_training_runs']+fullmean['completed_training_runs']+signed['completed_training_runs']+anchored['completed_training_runs']
+    concept_text='**概念坐标中的结构噪声：** 所有对照使用433个输出、保留原隐藏宽度；前五轮每图一次CBL前向，锚定编码器轮所有控制各匹配双分支的两次前向。训练属性标注用于确定映射/保护集合及审计阈值，验证属性用于质量门槛，没有属性训练损失；与前述特征噪声轮的预算及概念数分开比较。\n\n'
+    concept_text+='| 完整轮次 | 最强合格确定性对照ACC（%） | 合格共享噪声ACC（%） |\n|---|---:|---:|\n'
+    for label,data,doc,figure in [('直接概念扰动',compact,'精简概念噪声.md','07_compact_noise.png'),('属性通道保护',protected,'属性保护概念噪声.md','08_protected_noise.png'),('属性保护边际似然',predictive,'属性保护边际似然.md','09_protected_predictive.png'),('同均值容量',fullmean,'同均值容量共享噪声.md','10_protected_fullmean.png'),('观测有符号协方差',signed,'有符号共享噪声.md','11_protected_signed.png'),('锚定属性/可训练隐藏层',anchored,'锚定属性编码器.md','12_anchored_signed.png')]:
+        if data.get('pending'):
+            concept_text+=f'| {label} | 训练/复核进行中 | — |\n';continue
+        selected_cases=data['selected']
+        deterministic=[r for m,r in selected_cases.items() if m in ['clean','mean_only','adapter_matched','shared_no_sampling']]
+        best=max(deterministic,key=lambda r:(r['selection_correct'],-r['selection_nll']))
+        def interval(r):
+            if r is None:return '无合格配置'
+            lo=r['accuracy_min_percent'];hi=r['accuracy_max_percent']
+            return f'{lo:.2f}' if abs(lo-hi)<1e-5 else f'{lo:.2f}–{hi:.2f}'
+        concept_text+=f"| [{label}]({doc}) | {interval(best)} | {interval(selected_cases.get('shared_noise'))} |\n"
+    concept_text+='\n**结论：** 直接扰动轮的共享模型最高70.35%，但属性BA下降而未晋级；已发现并单列零扰动初始化的浮点重构问题，没有据诊断修改原选模。属性保护轮固定隐藏层及161个映射通道，并逐元素检查原生概率恒等；可靠随机收益仍需全部确定性对照及独立种子证据。\n\n'
+    for data,figure in [(anchored,'12_anchored_signed.png'),(signed,'11_protected_signed.png'),(fullmean,'10_protected_fullmean.png'),(predictive,'09_protected_predictive.png'),(protected,'08_protected_noise.png'),(compact,'07_compact_noise.png')]:
+        if not data.get('pending'):
+            concept_text+=f'![最新概念噪声完整对照]({figure})\n\n'
+            break
     replication_path=report/'conditional_seed_replication.json'
     replication=json.loads(replication_path.read_text()) if replication_path.exists() else None
     additional=0 if replication is None else replication['new_training_runs']
@@ -101,7 +137,10 @@ def main():
     plt.close(fig)
     with (report/'major_results.csv').open('w',newline='') as stream:
         writer=csv.DictWriter(stream,fieldnames=list(records[0]),lineterminator='\n');writer.writeheader();writer.writerows(records)
-    atomic_json({'completed_joint_cohort_runs':16*len(COHORTS),'previous_cohort_runs':42,'total_reported_registered_runs':16*len(COHORTS)+42+additional,'screen_runs':16*len(COHORTS)+42,'conditional_replication_new_runs':additional,'conditional_replication':replication,
+    atomic_json({'completed_joint_cohort_runs':16*len(COHORTS),'previous_cohort_runs':42,'total_reported_registered_runs':16*len(COHORTS)+42+additional+native_runs+concept_runs,'screen_runs':16*len(COHORTS)+42,'conditional_replication_new_runs':additional,'conditional_replication':replication,
+                 'compact_concept_training_runs':compact['completed_training_runs'],'protected_concept_training_runs':protected['completed_training_runs'],'protected_predictive_training_runs':predictive['completed_training_runs'],'matched_mean_capacity_training_runs':fullmean['completed_training_runs'],'signed_covariance_training_runs':signed['completed_training_runs'],'anchored_encoder_training_runs':anchored['completed_training_runs'],
+                 'concept_study_evidence_sha256':{name:digest(report/name) for name in ['compact_study.json','protected_study.json','predictive_study.json','fullmean_study.json','signed_study.json','anchored_study.json']},
+                 'attribute_supervised_training_runs':native_runs,'attribute_supervised_evidence_sha256':digest(report/'native_studies.json'),
                  'training_seeds':1,'baseline_seed':42,'adaptation_seed':0,'test_used':False,'five_seed_verified':False,
                  'selection':'original MC selection; no case/epoch re-selection from high-sample audit',
                  'limits':'Repeated deterministic controls across objective/scale versions are not independent training replicates. CEA is the paper compactness proxy, not human semantic quality.',
@@ -134,7 +173,7 @@ def main():
 '''+ '\n'.join(lines)+'\n'
     primary=f"""# PS-CBM 主要实验进展
 
-已完成原始三个 RN50 基线、{16*len(COHORTS)+42+additional} 条注册验证运行（不含调试运行）。**最强 CUB 确定性适配达到 69.45%，尚未证明随机分量的额外收益。** 主队列为基线种子 42、适配种子 0；另有固定基线下五个适配种子的条件复验，与独立完整基线准备分开报告。重复控制不算独立种子。测试集保持隔离，最终五种子验证尚未完成。
+已完成原始三个 RN50 基线、{16*len(COHORTS)+42+additional+native_runs+concept_runs} 条注册验证运行（不含调试运行），其中额外属性损失扩展 {native_runs} 条单列。**此前特征扰动队列最强 CUB 确定性适配达到 69.45%，尚未证明随机分量的额外收益。** 主队列为基线种子 42、适配种子 0；另有固定基线下五个适配种子的条件复验，与独立完整基线准备分开报告。重复控制不算独立种子。测试集保持隔离，最终五种子验证尚未完成。
 
 [完整基线图](02_complete_baselines.png)
 
@@ -166,11 +205,12 @@ def main():
 | 真实弱视图训练（16 条） | 所有方法均匀抽取原图/两种真实弱视图，保持原图概念目标及相同 mixup 和预算 | 共享复核为 69.05% / 69.15%–69.20%，属性 BA 仍下降约 0.15–0.23 pp，未确认随机额外收益。 |
 
 {replication_text}
-**解释检查：** CUB 原始人工属性按明确颜色/部位保守映射，覆盖 **68/312 属性**；筛选及阈值仅用训练集，验证排除 certainty < 3。基线 BA / AUROC 为 **67.43% / 72.52%**。共享方案 BA 仍略降，不能宣称解释提升；覆盖有限，且没有定位或因果干预证据。
+{concept_text}
+**解释检查：** CUB 原始人工属性按明确颜色/部位保守映射，覆盖 **68/312 属性**；筛选及阈值仅用训练集，验证排除 certainty < 3。基线42的 BA / AUROC 为 **67.43% / 72.52%**。原无属性监督共享方案 BA 仍略降，不能宣称解释提升；覆盖有限，且没有定位或因果干预证据。额外训练原生属性监督的[{native_runs}条完整运行](属性监督扩展.md)另列，保留并注明所有未通过预登记门槛的模型，不据属性改善重新晋级。各独立完整基线的属性阈值由各自训练集拟合，见[准备证据](baseline_contexts.json)。
 
-**效率与限制：** 概念数不变，CEA 随准确率同比变化；CEA 是论文紧凑度代理，不能替代人工属性质量。对照总览（04）横线是 Monte Carlo 范围，**不是置信区间**；条件复验（05）横线是注明范围的适配种子配对 t 区间。解析高斯概念均值用于区分非线性均值变化与随机推理效果，不替代重新训练的确定性对照。
+**效率与限制：** 前述特征噪声队列中的概念数不变，CEA 随准确率同比变化；CEA 是论文紧凑度代理，不能替代人工属性质量。额外的[概念输出精简](概念输出精简.md)删除精确零头连接且保留CUB属性通道，单列为干净模型效率结果，不计为噪声收益或新训练运行。原隐层宽度仍保留，没有整网时延或显存结论。新概念层学习方法的生成器另有193,066参数，不能把输出精简称作Pi整网参数减少。对照总览（04）横线是 Monte Carlo 范围，**不是置信区间**；条件复验（05）横线是注明范围的适配种子配对 t 区间。解析高斯概念期望用于区分非线性均值变化与随机推理效果，不替代重新训练的确定性对照。
 
-**继续迭代：** 实测协方差和真实弱视图两轮对照均已完成，属性退化仍未消除。独立完整基线种子 43–46 正按原 CBL/SAGA 预算准备；完成状态与逐检查点验证见 [独立基线证据](independent_baselines.json)。这是最终复验准备，不是锁定 Pi 方案后的五种子结论。下一轮检验加入训练原生属性目标的扩展设置，全部控制使用相同监督；与无属性监督基线的差异不归因于随机性。Goal 保持 active；仍需可靠候选、独立五种子、配对区间及最终测试。
+**继续迭代：** 三个数据集的完整基线种子42–46均已按原CBL/SAGA预算完成并重算验证指标，见[独立基线证据](independent_baselines.json)；这不是锁定Pi方案后的五种子结论。原生属性监督及其训练梯度校准队列按单独协议推进，校准权重0.409仅由固定训练子集梯度规则得到，不改写前轮门槛。直接概念扰动轮已完成16对照，属性通道保护、分类边际似然与同均值容量与训练观测有符号协方差轮已完成，锚定属性输出且允许其余隐藏层训练的轮次按独立协议接续；上表只纳入完整训练与复核，数学检查不作为分类性能证据。Goal 保持 active；仍需可靠候选、独立五种子、配对区间及最终测试。
 
 主要数值、CEA、属性变化和来源哈希见 [CSV](major_results.csv)、[来源汇总](major_results.json)。早期详细对照保留在 [首轮 CSV](validation_v1.csv)、[联合训练复核](joint_v5_summary.json)。
 """

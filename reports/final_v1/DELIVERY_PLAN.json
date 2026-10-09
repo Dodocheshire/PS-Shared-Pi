@@ -1,0 +1,9 @@
+{
+  "registered_utc": "2026-10-09 11:10:09 UTC",
+  "default_method": "adapter_matched",
+  "stochastic_candidate": "shared_noise",
+  "reason": "V22 configuration B validation: matched adapter70.20%, shared noise70.00%; choose deterministic default before final independent/test outcomes.",
+  "inference_source_sha256": "1fd021cc6ec70a53599c24fa1b427abddd210c3171213681a2d1fa8b41e6314d",
+  "selection_data": "completed V22 validation only",
+  "test_used_for_selection": false
+}

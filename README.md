@@ -16,9 +16,21 @@ python -m ps_pi.baseline --dataset cifar10 --seed 42
 
 需要 CUDA、PyTorch、torchvision、OpenAI CLIP，以及官方依赖。当前机器使用 `/home/pengcheng/miniconda3/envs/pi-cbm/bin/python`。`python -m ps_pi.launch` 串行运行首次 CIFAR-10 准备与基线训练，状态与日志保存在 `artifacts/logs/first_baseline/`。`--smoke` 使用独立输出目录并明确标注调试预算，其指标不得当作正式结果。
 
-后续目标是用部分共享概念的结构约束 Pi 噪声，先以验证集筛选方案，再锁定方案进行独立五种子实验。必须保留仅均值、同容量确定性适配、固定随机噪声，以及同一个 Pi 模型关闭尺度的对照。只有随机分量优于这些对照时，才将增益归因于噪声。解释、校准和概念效率同时检查。当前尚无新的正式性能提升结论。
+最终版本采用部分共享概念结构约束噪声，保留仅均值、参数匹配确定性适配、关闭训练采样、对角噪声和固定随机控制。已锁定配置并完成CUB独立五种子验证/测试，同时检查属性与校准。结果未证明随机分量优于强确定性控制；完整图表与结论见[最终实验报告](EXPERIMENT_RESULT.md)。
 
 训练特征、模型权重和生成运行在 `.gitignore` 中，仅保留本地。简明主要结果持续整理到主项目 `Essay/PS-Shared/report/`。
+
+## 2026-10-09 最终交付
+
+主要结果集中于[EXPERIMENT_RESULT.md](EXPERIMENT_RESULT.md)，含四张颜色一致的主要图表，每组均说明目的与结论。用户要求两小时内收尾，因此停止参数搜索与新增消融。CIFAR-10/100/CUB完整干净基线各五种子，共15次CBL/SAGA训练、30个末轮/最佳验证状态；CUB最终七类控制×五个独立基线种子，共35个适配模型。362条历史验证探索与35条最终重复分别保留，不能把探索最佳分数当作测试结果。
+
+CUB测试：原始干净70.525%，参数匹配确定性适配70.594%，共享噪声70.532%，关闭采样70.604%。共享噪声减关闭采样为−0.072 pp，五种子配对95%区间[−0.299,+0.154]；没有可靠额外随机收益。适配降低NLL/ECE，映射的68/312项真实属性相对同结构干净精简CBL保持逐元素响应一致。三个数据集的概念输出精简在15个基线上通过验证，但双分支与生成器增加参数，未声称整体提速或减参。
+
+`ps_pi/final_infer.py`是交付推理入口，默认方法在测试前根据V22验证结果选为`adapter_matched`；共享版本使用`--mode shared_noise`。固定参考与自适应CBL双分支都用于全部最终控制。CUB适配种子0–4分别配对独立基线种子42–46；固定训练概念库与预训练特征共享。CIFAR最终仅评估干净基线，未完成或宣称其最终噪声五种子效果。
+
+[冻结设置](reports/final_v1/LOCK.json)、[测试前交付选择](reports/final_v1/DELIVERY_PLAN.json)、[65个检查点与评估源码锁](reports/final_v1/EVALUATION_LOCK.json)、[130组最终预测/70组原生属性数组核验](reports/final_v1/VERIFICATION.json)、[推理入口核验](reports/final_v1/INFERENCE_VERIFICATION.json)及[当前状态](reports/CURRENT_STATE.json)均已保存。原66项数学与协议测试通过，另核验128个历史检查点/256组MC数组/80组受保护属性数组。模型和数据保留本地；图表、CSV/JSON及源码版本随私有submodule归档。主项目本地镜像在`Essay/PS-Shared/report/最终实验结果.md`。
+
+以下为阶段历史，历史“尚未测试/待完成”的状态只适用于当时；最终结果以上述报告为准。
 
 ## 验证集上的噪声迭代
 

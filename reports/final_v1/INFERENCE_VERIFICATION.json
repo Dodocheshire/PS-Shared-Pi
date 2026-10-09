@@ -1,0 +1,19 @@
+{
+  "records": [
+    {
+      "mode": "adapter_matched",
+      "seed": 42,
+      "images": 2000,
+      "probabilities_bitwise_equal": true,
+      "source_sha256": "1fd021cc6ec70a53599c24fa1b427abddd210c3171213681a2d1fa8b41e6314d"
+    },
+    {
+      "mode": "shared_noise",
+      "seed": 42,
+      "images": 2000,
+      "probabilities_bitwise_equal": true,
+      "source_sha256": "1fd021cc6ec70a53599c24fa1b427abddd210c3171213681a2d1fa8b41e6314d"
+    }
+  ],
+  "test_tuning": false
+}

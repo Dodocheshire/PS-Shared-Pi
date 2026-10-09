@@ -1,90 +1,45 @@
 {
-  "time": 1791535947.157814,
-  "goal_status": "active",
-  "completed_baselines": 12,
-  "baseline_models": 24,
-  "complete_reported_cohort_controls": 234,
+  "time": 1791545038.612063,
+  "goal_status": "final_delivery_complete",
+  "completed_baselines": 15,
+  "baseline_models": 30,
+  "independent_baseline_seeds_per_dataset": {
+    "cifar10": 5,
+    "cifar100": 5,
+    "cub": 5
+  },
+  "complete_baseline_training_seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "complete_reported_cohort_controls": 362,
   "completed_joint_cohort_controls": 176,
   "previous_cohort_controls": 42,
-  "completed_joint_cohorts": [
-    [
-      "cifar10",
-      "validation_joint_v5"
-    ],
-    [
-      "cifar100",
-      "validation_joint_v5"
-    ],
-    [
-      "cub",
-      "validation_joint_v5"
-    ],
-    [
-      "cub",
-      "validation_joint_residual_v6"
-    ],
-    [
-      "cub",
-      "validation_joint_residual_calibrated_v7"
-    ],
-    [
-      "cub",
-      "validation_joint_residual_predictive_v8"
-    ],
-    [
-      "cub",
-      "validation_joint_sparse_head_v9"
-    ],
-    [
-      "cub",
-      "validation_joint_feature_mixup_v10"
-    ],
-    [
-      "cub",
-      "validation_joint_robust_mixup_v12"
-    ],
-    [
-      "cub",
-      "validation_joint_feature_augmented_v13"
-    ],
-    [
-      "cub",
-      "validation_joint_observed_views_v14"
-    ]
+  "conditional_replication_new_runs": 16,
+  "attribute_loss_training_runs": 32,
+  "completed_additional_cohorts": [
+    "validation_joint_native_training_v15",
+    "validation_joint_native_calibrated_v16",
+    "validation_compact_concept_v17",
+    "validation_protected_concept_v18",
+    "validation_protected_predictive_v19",
+    "validation_protected_fullmean_v20",
+    "validation_protected_signed_v21",
+    "validation_anchored_signed_v22"
   ],
-  "running_queues": {
-    "full_baselines": {
-      "phase": "running",
-      "index": 9,
-      "total": 12,
-      "case": {
-        "dataset": "cifar100",
-        "seed": 44
-      },
-      "pid": 1553025,
-      "child_pid": 1601488,
-      "time": 1791535774.6363943,
-      "verified_live_cmdline": "/home/pengcheng/miniconda3/envs/pi-cbm/bin/python -u -m ps_pi.baseline --dataset cifar100 --seed 44 "
-    },
-    "native_supervised_v15": {
-      "phase": "running",
-      "pid": 1602200,
-      "child_pid": 1602264,
-      "index": 0,
-      "total": 16,
-      "case": {
-        "mode": "clean",
-        "concept_weight": 1.0,
-        "cbl_lr": 1e-05
-      },
-      "time": 1791535818.5637555,
-      "verified_live_cmdline": "/home/pengcheng/miniconda3/envs/pi-cbm/bin/python -u -m ps_pi.joint_native_training_train --dataset cub --mode clean --concept-weight 1.0 --cbl-lr 1e-05 --seed 0 --epochs 40 --output outputs/cub/validation_joint_native_training_v15 --initial-scale 0.3092943914706002 --min-scale 0.06185887829412005 --max-scale 0.9278831744118007 "
-    }
-  },
-  "tested_protocol_checks": 52,
-  "test_features_encoded": false,
+  "running_queues": {},
+  "queues_with_missing_handles": [],
+  "tested_protocol_checks": 66,
+  "verified_checkpoints": 128,
+  "verified_mc_prediction_arrays": 256,
+  "verified_protected_native_arrays": 80,
+  "test_features_encoded": true,
   "test_used_for_selection": false,
-  "five_seed_final_evidence": false,
+  "five_seed_final_evidence": true,
+  "locked_noise_candidate": "final_v1 / V22-B",
   "native_attribute_validation": {
     "dataset": "cub",
     "attributes": 68,
@@ -93,33 +48,32 @@
     "mapping_and_thresholds_split": "train",
     "evaluation_split": "val"
   },
-  "current_result": "Completed observed-covariance and actual-view cohorts do not establish extra stochastic gain. CUB/CIFAR10 full baseline seeds42-46 reproduced. Native-supervised extension queued with all controls and stricter native gates.",
-  "next_stage": "Complete remaining CIFAR100 full baseline seeds and native-supervised V15 matched controls; review independent MC and native quality before locking any candidate.",
-  "report": "../Essay/PS-Shared/report/主要实验进展.md",
-  "conditional_replication_new_runs": 16,
-  "conditional_adaptation_seeds": [
-    0,
-    1,
-    2,
-    3,
-    4
-  ],
-  "complete_baseline_training_seeds": [
-    42
-  ],
-  "latest_complete_training_queue": "cub_joint_robust_mixup_v12",
-  "training_nuisance_cache": {
-    "phase": "complete",
-    "rows": 3994,
-    "views": 2,
-    "split": "train",
-    "val_used": false,
-    "test_used": false,
-    "original_feature_alignment_relative_rms": 0.0
+  "current_result": "Final CUB five-seed shared minus sampling-disabled test delta -0.0725 pp; paired t95 [-0.2990,+0.1540]. Default matched deterministic adapter chosen before test. No further ablations.",
+  "next_stage": "Final delivery completed per user two-hour deadline; research iteration stopped. See EXPERIMENT_RESULT.md.",
+  "auxiliary_attribute_use": "V15/V16 add native loss; later cohorts use train attributes for mapping/protected-cohort/threshold selection without native loss. Same within-cohort use for every control; not the original unmodified PS-CBM supervision setting.",
+  "evidence_sha256": {
+    "major_results.json": "81ff3035f0f5c532567a2e0bc04e8c2ff796fd1def2cbdd6e3c6bff3fda96b4a",
+    "independent_baselines.json": "fc2ae1c9b4ae2c5f9a1cfca8dce2f80600a793e45888c89b55a19d8ef2624ecd",
+    "compact_baselines.json": "db89903e29358054ad363f009b703d8bb9acb2c0ddf2b5f9c0d97c588058bb9d",
+    "validation_artifact_verification.json": "f26d586ab63fe2a5ec850607c2ed961d38db5da69301c985fec8edcba49f5a1a",
+    "final_results": "49656f96c8390a93a5a3b24c1ed38266f9c22ea3d3f9c375c291e206942504a5",
+    "final_verification": "8e61362813333f6a48ee9438129d8ae362a4d9db8e4cb23f1b27a0b3c7ed5087"
   },
-  "independent_baseline_seeds_per_dataset": {
-    "cifar10": 5,
-    "cifar100": 2,
-    "cub": 5
-  }
+  "report": "EXPERIMENT_RESULT.md",
+  "final_independent_adaptation_runs": 35,
+  "complete_registered_training_runs_including_final": 397,
+  "final_datasets_noise": [
+    "cub"
+  ],
+  "final_datasets_clean_test": [
+    "cifar10",
+    "cifar100",
+    "cub"
+  ],
+  "final_evaluated_models_per_split": 65,
+  "final_verified_prediction_arrays": 130,
+  "final_verified_native_arrays": 70,
+  "test_used_for_evaluation": true,
+  "native_attribute_final_evaluation": "68 fixed train-mapped native attributes; validation and test",
+  "final_report": "EXPERIMENT_RESULT.md"
 }

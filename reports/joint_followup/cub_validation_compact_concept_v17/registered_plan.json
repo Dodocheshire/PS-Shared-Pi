@@ -1,0 +1,125 @@
+{
+  "iteration": 17,
+  "dataset": "cub",
+  "seed": 0,
+  "baseline_seed": 42,
+  "epochs": 40,
+  "mixup_alpha": 0.2,
+  "output": "outputs/cub/validation_compact_concept_v17",
+  "cases": [
+    {
+      "mode": "clean",
+      "concept_weight": 1.0,
+      "cbl_lr": 1e-05
+    },
+    {
+      "mode": "mean_only",
+      "concept_weight": 1.0,
+      "cbl_lr": 1e-05
+    },
+    {
+      "mode": "adapter_matched",
+      "concept_weight": 1.0,
+      "cbl_lr": 1e-05
+    },
+    {
+      "mode": "diag_noise",
+      "concept_weight": 1.0,
+      "cbl_lr": 1e-05
+    },
+    {
+      "mode": "shared_noise",
+      "concept_weight": 1.0,
+      "cbl_lr": 1e-05
+    },
+    {
+      "mode": "shared_no_sampling",
+      "concept_weight": 1.0,
+      "cbl_lr": 1e-05
+    },
+    {
+      "mode": "fixed_structured",
+      "concept_weight": 1.0,
+      "cbl_lr": 1e-05
+    },
+    {
+      "mode": "fixed_isotropic",
+      "concept_weight": 1.0,
+      "cbl_lr": 1e-05
+    },
+    {
+      "mode": "clean",
+      "concept_weight": 5.0,
+      "cbl_lr": 3e-06
+    },
+    {
+      "mode": "mean_only",
+      "concept_weight": 5.0,
+      "cbl_lr": 3e-06
+    },
+    {
+      "mode": "adapter_matched",
+      "concept_weight": 5.0,
+      "cbl_lr": 3e-06
+    },
+    {
+      "mode": "diag_noise",
+      "concept_weight": 5.0,
+      "cbl_lr": 3e-06
+    },
+    {
+      "mode": "shared_noise",
+      "concept_weight": 5.0,
+      "cbl_lr": 3e-06
+    },
+    {
+      "mode": "shared_no_sampling",
+      "concept_weight": 5.0,
+      "cbl_lr": 3e-06
+    },
+    {
+      "mode": "fixed_structured",
+      "concept_weight": 5.0,
+      "cbl_lr": 3e-06
+    },
+    {
+      "mode": "fixed_isotropic",
+      "concept_weight": 5.0,
+      "cbl_lr": 3e-06
+    }
+  ],
+  "test_access": false,
+  "native_training_supervision": false,
+  "training_change": "direct standardized-concept Gaussian after one compact CBL forward; current detached concept conditioning; expected sampled task CE; all controls use same compact model",
+  "mean_bound": 0.3,
+  "initial_scale": 0.1,
+  "min_scale": 0.02,
+  "max_scale": 0.3,
+  "quality_gates": {
+    "nll_tolerance": 0.0,
+    "ece_tolerance": 0.0,
+    "concept_bce_tolerance": 0.0,
+    "drift_limit": 0.3,
+    "native_ba_tolerance": 0.0,
+    "native_auroc_tolerance": 0.0
+  },
+  "compact_checkpoint_sha256": "80541323bd16e76be62a876f7eb64e8391bf42459c4377de51a95b7c34a01973",
+  "native_protocol_sha256": "82fcc787327e38792d60ad31eb0c103b2338a7c8f2806fb167fe40d55c8f8308",
+  "causal_contrast": "shared_noise vs shared_no_sampling: same architecture, prior, amplitude bounds, initialization, order and budget; training sampling toggled",
+  "scope": "single baseline42/adapter0 validation exploration; no final five-seed or test evidence; compaction itself is not noise gain",
+  "source_sha256": {
+    "compact_concept_screen.py": "ef1a2f3b371cbd0b7dd90153e10adcfeb166b0b3a2a0ce10cc445a7c67fa5fc8",
+    "compact_concept_train.py": "fe313ac3c941f269c476886bc2538ff84136d0d8125d796746b9983441e2af90",
+    "compact_concept_audit.py": "7d55b4685d68508d8f102c288d624c807662faa73593e41d05d1cc7cab2a99eb",
+    "compact_concept_forward.py": "8c903be44ba0aa6fbe02ee1492dbd487510bfee6e23c7cb1a465aea682f84754",
+    "compact_outputs.py": "584c01a375a9454b85eafbdb0f75fd50955f98d8eeec6720bff06cfb46bfc2c3",
+    "bottleneck_noise.py": "27776338e1c22f92fe0999eaba24cc7d1d0ec90ed4ea8e119c40465655817c3f",
+    "joint_noise.py": "705208f58ad0ebb2089482292b5894198614bba18f65a1a6b2198ba4803e1de2",
+    "directions.py": "6e20a11786e2af3a8342d8e378e1e8443d7816558422fdb91a63d6e3b459e2b4",
+    "noise.py": "a664ad766799729a36e196769aa5abd9dd8e418f39cbd883e8bbb204858317fb",
+    "common.py": "1ade0fe945d7bd0b6008f1a4b7b3a9d154873d66ebe669453b89e50a91ea1a44",
+    "baseline.py": "1a0e9fbc8615ee3d2d15410c85ff0c8340978104eddaa03a53941d5c61e0a96c",
+    "adapt_predictive.py": "f57e48153f00c29fd0f99c02ba71a2629234506ddd911ccb6106d409c8675649",
+    "joint_observed_views_audit.py": "b8f24946e88319c54378c9cd3467122e403330bdb8a5aa0e163731624a79484d"
+  }
+}

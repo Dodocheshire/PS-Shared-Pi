@@ -1,0 +1,12 @@
+{
+  "audit_sha256": "db89903e29358054ad363f009b703d8bb9acb2c0ddf2b5f9c0d97c588058bb9d",
+  "exporter_sha256": "2e2fd3015e7452ceca5c5f2e7f4e28f549363d379989935ac9b65429ea64ca41",
+  "figures": {
+    "png": "f6a54f515b0cfb15cb066f8e0d6780ca177e32e8945bee1098f5ccac5975d695",
+    "svg": "b2765990e8be546b35d161604f0abdba74f8a5433bd6bc7ad8186b351d8ecaef",
+    "pdf": "fcf2f402f81e9899bfb039fa31b6e1cdb52b341bb8a7fcc5602aedc9cbdb8f30"
+  },
+  "noise_gain": false,
+  "test_used": false,
+  "final_evidence": false
+}

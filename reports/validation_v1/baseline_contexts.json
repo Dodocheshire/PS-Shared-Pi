@@ -1,0 +1,201 @@
+{
+  "records": [
+    {
+      "dataset": "cub",
+      "seed": 42,
+      "baseline_sha256": "a9185fbd4e7e3b6384a80bfc8a40002ec7ff68be6e1059e410e1f0a108865614",
+      "context_sha256": {
+        "train": "9eb00ac5521c479b53b0806f19537dffe385fe34885978f39a5801ad69a41d9d",
+        "val": "ef9f94b82e465c984319ff682c7e594ef007e87ad7bced0d8123d4351efeea52"
+      },
+      "context_scope": "fixed train/val feature order; no test features",
+      "test_used": false,
+      "native_attributes": 68,
+      "native_balanced_accuracy": 0.674316323855344,
+      "native_auroc": 0.7252028525815741,
+      "native_protocol_sha256": "82fcc787327e38792d60ad31eb0c103b2338a7c8f2806fb167fe40d55c8f8308",
+      "native_protocol_path": "artifacts/cub/native_attributes_replicates/seed42/protocol.json"
+    },
+    {
+      "dataset": "cub",
+      "seed": 43,
+      "baseline_sha256": "d10299123b6c0523efbd18ee85faf855bbbad6170635177eec40f22fe3989444",
+      "context_sha256": {
+        "train": "a6f35f11e7492fe9d2952dc5e1e77a6fb13a9da1dc4549a8bf53b198046ba6f3",
+        "val": "56c8b0a2cb3d259740644986e497f478ddbc070c1befc048cd47d2d59bebc5cf"
+      },
+      "context_scope": "fixed train/val feature order; no test features",
+      "test_used": false,
+      "native_attributes": 68,
+      "native_balanced_accuracy": 0.6735384497134125,
+      "native_auroc": 0.7250853080270055,
+      "native_protocol_sha256": "efc677fdd8f1503a6d48a430a1d77cf83920caecc21672e2f5d16b7b41c2430f",
+      "native_protocol_path": "artifacts/cub/native_attributes_replicates/seed43/protocol.json"
+    },
+    {
+      "dataset": "cub",
+      "seed": 44,
+      "baseline_sha256": "94bbd6e8504490570d5d43ddca295a5fa535c371c105ca3029cbe50b4fd1557f",
+      "context_sha256": {
+        "train": "5177bd1f588133657f67a36b1ed90117f0ed5941bc1385c653233f28df514bf4",
+        "val": "749c0bdfc92464c43a1bad97a5a38add62ddf3c4cbf27fd9fdaf8b2cde9436a6"
+      },
+      "context_scope": "fixed train/val feature order; no test features",
+      "test_used": false,
+      "native_attributes": 68,
+      "native_balanced_accuracy": 0.6749432983753436,
+      "native_auroc": 0.7246627823179942,
+      "native_protocol_sha256": "001442caf177a3445a583643764f5ef7a87c610105246a63181bdb57892dd72c",
+      "native_protocol_path": "artifacts/cub/native_attributes_replicates/seed44/protocol.json"
+    },
+    {
+      "dataset": "cub",
+      "seed": 45,
+      "baseline_sha256": "0ffbc62c36f0fb215e9e16fb9d36e102b0038e30a9b7b760c6e34973046b5f5b",
+      "context_sha256": {
+        "train": "6687f1c793e557118c38006343bc9ceab360defce8f9055e158bbac3c7325c76",
+        "val": "9296a3e232c65b7860377dcbdb52c029e2bb4313b84f29c2a6818c15b55ea65d"
+      },
+      "context_scope": "fixed train/val feature order; no test features",
+      "test_used": false,
+      "native_attributes": 68,
+      "native_balanced_accuracy": 0.6734473622020554,
+      "native_auroc": 0.7247958936480554,
+      "native_protocol_sha256": "8f94e1d6f6c8338436ff4b91fdf7e8a9d6f05031c40cdf3192597e703ccceb56",
+      "native_protocol_path": "artifacts/cub/native_attributes_replicates/seed45/protocol.json"
+    },
+    {
+      "dataset": "cub",
+      "seed": 46,
+      "baseline_sha256": "25f5ca06b2ec69b1fae25465070cc89330ae1fa3f988af8cdd75322dfd9c84ea",
+      "context_sha256": {
+        "train": "722ee3aa17cc1f5adf7f06a54728a61ed6f8a47748d4a62ce941b00a55369ae7",
+        "val": "34f7ecc7f542bb9af6d6df111aa47e2a7ccee5fac45fb29a0fddec9dfa95bd8f"
+      },
+      "context_scope": "fixed train/val feature order; no test features",
+      "test_used": false,
+      "native_attributes": 68,
+      "native_balanced_accuracy": 0.6733036665793728,
+      "native_auroc": 0.7237457190579843,
+      "native_protocol_sha256": "43dbee74bcb28f620d27ba2b75be97ad324e9ef6f810621e8227da162b5a2179",
+      "native_protocol_path": "artifacts/cub/native_attributes_replicates/seed46/protocol.json"
+    },
+    {
+      "dataset": "cifar10",
+      "seed": 42,
+      "baseline_sha256": "2ef42fbb02449b4a34305ea785cba1c17b24bf2a5073f989635ec146f24cfdd9",
+      "context_sha256": {
+        "train": "195d6b2832cb506155ee89e9e44234a523431f54732023599aa42a9bd5eff714",
+        "val": "0dbbb95546cc53da4bd20ca25d29945da642d455259b8fc5143f6fa0748ecbd1"
+      },
+      "context_scope": "fixed train/val feature order; no test features",
+      "test_used": false
+    },
+    {
+      "dataset": "cifar10",
+      "seed": 43,
+      "baseline_sha256": "9e700449a130c49a73c6df4a976625371af9eaf713d17c0be1363dbde08182a4",
+      "context_sha256": {
+        "train": "53a48e944453b9aaaa74d0e1768a27353993e228305dd77bc58ea7c65ca06173",
+        "val": "ad66dbef82a7f5d9ac5bb3d3dba1e9b1b50615132af1619568464cce45fd707b"
+      },
+      "context_scope": "fixed train/val feature order; no test features",
+      "test_used": false
+    },
+    {
+      "dataset": "cifar10",
+      "seed": 44,
+      "baseline_sha256": "bc46cf44d9aaf766ea192dbe6aeef6874c2454d18ef49d0646574faf3fe9c854",
+      "context_sha256": {
+        "train": "590c1f3a6f65b9ae20d1b97bc1b5ece38d0b08bf03c6f21ec39b0a092d1c1f14",
+        "val": "d591c013ec776d80e7813dd64eb190ecb08998e687d928355209aceeb360eb99"
+      },
+      "context_scope": "fixed train/val feature order; no test features",
+      "test_used": false
+    },
+    {
+      "dataset": "cifar10",
+      "seed": 45,
+      "baseline_sha256": "aac7571e49b09f40ef906621e129b0a1ee6d631701f29d0335f14f9c35f459ef",
+      "context_sha256": {
+        "train": "cf4fa4af6c47e20ff3cc47660417ff768250f449a500923c01776255e51188d6",
+        "val": "e1cb7e6e4024badb3c377f00de09cbb95e024ab505b4cc57a2e25bdfedcf2306"
+      },
+      "context_scope": "fixed train/val feature order; no test features",
+      "test_used": false
+    },
+    {
+      "dataset": "cifar10",
+      "seed": 46,
+      "baseline_sha256": "6fcc9285d3358cdd51cd0ed602ed162e5d890074dadc50d503ffd475f27ff7db",
+      "context_sha256": {
+        "train": "9226dc8d1674296dd769dfcb13207f3117706ea9ab8bd5370904384160f5f667",
+        "val": "f7bcae1f0098c7a0531d190f6a23e94afe10557cdf63f0379d1e97b5a5b8438f"
+      },
+      "context_scope": "fixed train/val feature order; no test features",
+      "test_used": false
+    },
+    {
+      "dataset": "cifar100",
+      "seed": 42,
+      "baseline_sha256": "c69cc917c760e4ec3dc13c10a21de9687e08e6cb09ec78b0e6b78355c4eeccc5",
+      "context_sha256": {
+        "train": "a71279f6afeb9579829f807422b13cebadb40c9bf5d32b87746c58f1334be597",
+        "val": "98bcd31ee833d8db29c368677cb2beab13433ff05667712af3207bf7b0e0aeca"
+      },
+      "context_scope": "fixed train/val feature order; no test features",
+      "test_used": false
+    },
+    {
+      "dataset": "cifar100",
+      "seed": 43,
+      "baseline_sha256": "299b6e6878d05f172a7e0bcb5a47d30c7a9f5c36fa92e6eacdeccacf2eed444e",
+      "context_sha256": {
+        "train": "dba9ae703bf676915d830515c612a0f3e69c1947e0bb1c49b073ef50bfe089a3",
+        "val": "32f1c2585fe91451fd615af79e9bd4e727170f5bd51614e818471ac7532774db"
+      },
+      "context_scope": "fixed train/val feature order; no test features",
+      "test_used": false
+    },
+    {
+      "dataset": "cifar100",
+      "seed": 44,
+      "baseline_sha256": "1cc210818f0970915f6880384811b142082c4cc629c7a144bdfaea5eded9bc36",
+      "context_sha256": {
+        "train": "3cf30e61716bca705db907e088d73d55326187e1a40550bbeedde06007aa1785",
+        "val": "ce3b0d2b5c7ff138c977028b5bd0a32f878ef1f3f03bcb4f4dfd004b498fdbf2"
+      },
+      "context_scope": "fixed train/val feature order; no test features",
+      "test_used": false
+    },
+    {
+      "dataset": "cifar100",
+      "seed": 45,
+      "baseline_sha256": "676595ff14034f74716cae245a945524c1716a5dfe95ecbd9f3704b2cc31a598",
+      "context_sha256": {
+        "train": "3e81ab02919ff3c44c8ba44077a84aad494e015f6f41f778dd9907eab1828a18",
+        "val": "a0390d04db3ea0b32522768b2f5553b44d41c749355f9662684992d895ff1af7"
+      },
+      "context_scope": "fixed train/val feature order; no test features",
+      "test_used": false
+    },
+    {
+      "dataset": "cifar100",
+      "seed": 46,
+      "baseline_sha256": "04432506b490e5798bcfd44fea5fce8df835ef7a5d9f92fc5bfae8e68f1767e6",
+      "context_sha256": {
+        "train": "18bed4d4427d3bf8758a48ca1809fb3b1fd75edd1392f18d20225cc2bd67efe7",
+        "val": "cb22a8de975d68b4efa9159bc395ba4bd6bc95a0f7c747797062625f9c66ee63"
+      },
+      "context_scope": "fixed train/val feature order; no test features",
+      "test_used": false
+    }
+  ],
+  "pending": [],
+  "checked_at": 1791539196.8580747,
+  "source_sha256": "47f1ac24b2175b95fa32c9ed7bc9826413fb467946b1efb1a07c90875295f41f",
+  "test_used": false,
+  "locked_noise_candidate": false,
+  "final_five_seed_evidence": false,
+  "limits": "Preparatory concept contexts and training-only native thresholds; not Pi/control replication or test evidence. Native cohorts use the same conservative mapping; thresholds differ per independently trained baseline."
+}

@@ -1,0 +1,34 @@
+{
+  "iteration": 21,
+  "baseline_sha256": "a9185fbd4e7e3b6384a80bfc8a40002ec7ff68be6e1059e410e1f0a108865614",
+  "compact_checkpoint_sha256": "80541323bd16e76be62a876f7eb64e8391bf42459c4377de51a95b7c34a01973",
+  "view_sha256": [
+    "6aafc1e772ea41444fa3e737c4277d2b13610f3a5f99da83ae2c4a3df4bf2c7f",
+    "d1225c7d5d738f1108519105d5b80e0c2c71697d45654ba15b28aa7f3e3cfaca"
+  ],
+  "source_sha256": "1c0e6b2eb6c5d4f1af60fd15c98d2cfc509d8a5347b5233f2daefa659db4051e",
+  "split": "train",
+  "rows": 3994,
+  "view_pairs": 2,
+  "validation_used": false,
+  "test_used": false,
+  "rule": "top observed covariance eigenvector within each original sharing support; row normalization preserves original group variance; original factor retained for mean decoder",
+  "uses_true_class_for_conditioning": false,
+  "bank_sha256": "32a64129e3ddd77cfb4af22c56c2798091ce8be5f2af163f059b77a17556c340",
+  "active_coordinates": 272,
+  "negative_observed_offdiagonal_fraction": 0.10554089709762533,
+  "original_positive_factor": {
+    "offdiagonal_cosine": 0.8860560098693717,
+    "nonnegative_fit_relative_error": 0.4635781998480594,
+    "fit_coefficient_diagnostic_only": 0.09289563942124476
+  },
+  "observed_signed_factor": {
+    "offdiagonal_cosine": 0.9063362044584206,
+    "nonnegative_fit_relative_error": 0.4225573150330063,
+    "fit_coefficient_diagnostic_only": 0.09591940644240528
+  },
+  "max_row_variance_delta": 1.1920928955078125e-07,
+  "negative_factor_loadings": 37,
+  "mean_decoder_unchanged": true,
+  "scope": "Training covariance approximation, not validation performance or noise-gain evidence; covariance is PSD by construction and only original connected concepts share noise."
+}

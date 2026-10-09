@@ -1,0 +1,45 @@
+{
+  "dataset": "cub",
+  "samples": 256,
+  "independent_mc_seeds": [
+    9071,
+    9072
+  ],
+  "attribute_mc_seed": 9081,
+  "checkpoint_selection_frozen": true,
+  "test_used": false,
+  "source_sha256": "6f4bdd06480255511611ebb5729176052dfffb47addb3e434e00b9489f815633",
+  "baseline_sha256": "a9185fbd4e7e3b6384a80bfc8a40002ec7ff68be6e1059e410e1f0a108865614",
+  "compact_checkpoint_sha256": "80541323bd16e76be62a876f7eb64e8391bf42459c4377de51a95b7c34a01973",
+  "source_dependencies_sha256": {
+    "protected_concept_forward.py": "848ba2ed5e21d73e28078debd5205a502069d3536d0a6976454c0f1cc8508c54",
+    "protected_concepts.py": "f17a56155b33067cae1c740518809a674abde2cef47ea696054f34845fdc67c4",
+    "protected_predictive_train.py": "a7611e4621516ddc30ddda5e3acd89ae6816eda945e916a10c0d12f5c3185d2c",
+    "compact_concept_forward.py": "8c903be44ba0aa6fbe02ee1492dbd487510bfee6e23c7cb1a465aea682f84754",
+    "compact_outputs.py": "584c01a375a9454b85eafbdb0f75fd50955f98d8eeec6720bff06cfb46bfc2c3",
+    "bottleneck_noise.py": "27776338e1c22f92fe0999eaba24cc7d1d0ec90ed4ea8e119c40465655817c3f",
+    "joint_noise.py": "705208f58ad0ebb2089482292b5894198614bba18f65a1a6b2198ba4803e1de2",
+    "noise.py": "a664ad766799729a36e196769aa5abd9dd8e418f39cbd883e8bbb204858317fb",
+    "directions.py": "6e20a11786e2af3a8342d8e378e1e8443d7816558422fdb91a63d6e3b459e2b4"
+  },
+  "checkpoint_sha256": {
+    "outputs/cub/validation_protected_predictive_v19/adapter_matched_seed0_cw1_lr1e-05/model.pt": "5618e4a94c52bbe2e78dc148446ee2b7e451ea0b5e284da8d736275b2120b7bb",
+    "outputs/cub/validation_protected_predictive_v19/adapter_matched_seed0_cw5_lr3e-06/model.pt": "defa004d38a433edcf1930c09de278663fc88ead711049c6ffc351d07c41ce70",
+    "outputs/cub/validation_protected_predictive_v19/clean_seed0_cw1_lr1e-05/model.pt": "2b0438a76a6a7e672d0fe46fea55b492af492f32d37eb47e5ce20094e69d192b",
+    "outputs/cub/validation_protected_predictive_v19/clean_seed0_cw5_lr3e-06/model.pt": "ff32508c66f8492fd65e8cc615f0ae9c9cee08bdb2a80743e9bc471f27f24e87",
+    "outputs/cub/validation_protected_predictive_v19/diag_noise_seed0_cw1_lr1e-05/model.pt": "d1d28910012f0189496883954e24fe6b574b4b24bc491c60710d48c1b6ce16e6",
+    "outputs/cub/validation_protected_predictive_v19/diag_noise_seed0_cw5_lr3e-06/model.pt": "f9a0441c25ab2aeb3a0effd9a90632d8147ffdbec54012695bccbecaafab6439",
+    "outputs/cub/validation_protected_predictive_v19/fixed_isotropic_seed0_cw1_lr1e-05/model.pt": "82cf1c6d342dc1834cd276b51798b63219a0a41e779c9b7c88b4f1fab74bc228",
+    "outputs/cub/validation_protected_predictive_v19/fixed_isotropic_seed0_cw5_lr3e-06/model.pt": "3785f2bb9eb1bfaf0a7cb23b30a9780b42ebdbd9d3944c2d885438e060a44c9c",
+    "outputs/cub/validation_protected_predictive_v19/fixed_structured_seed0_cw1_lr1e-05/model.pt": "e812fcc21dc418a48f1099cd3b493cb069a35269a18a4d847e5542d9dac535cf",
+    "outputs/cub/validation_protected_predictive_v19/fixed_structured_seed0_cw5_lr3e-06/model.pt": "f97dba0d2057c5d37c709e6fce69992bc47718ff33b5f7291901aeb4769d5ab7",
+    "outputs/cub/validation_protected_predictive_v19/mean_only_seed0_cw1_lr1e-05/model.pt": "8bd47128d5bc00c4bb494d1bd0290a48ebed3ea2bf05b002c7db93c023797e09",
+    "outputs/cub/validation_protected_predictive_v19/mean_only_seed0_cw5_lr3e-06/model.pt": "f561a1489ee4bc57cb095cd64105b2e835b9fbb0d18e75e0a4b051458a9b131b",
+    "outputs/cub/validation_protected_predictive_v19/shared_no_sampling_seed0_cw1_lr1e-05/model.pt": "308e6912aaa1a50c30b6c72cd78d9f90db7086e173e542b69e4d12c9722eaec0",
+    "outputs/cub/validation_protected_predictive_v19/shared_no_sampling_seed0_cw5_lr3e-06/model.pt": "3808cd186efcd6b505a606d93e903b8fa0b3bec54f936edc2d8f97031c50a861",
+    "outputs/cub/validation_protected_predictive_v19/shared_noise_seed0_cw1_lr1e-05/model.pt": "1775ee6e7d8ef90d5bce706c7c3d37264891a0673b1d31f955e25da16b2e275d",
+    "outputs/cub/validation_protected_predictive_v19/shared_noise_seed0_cw5_lr3e-06/model.pt": "47166ba65567239a873333a881cf11fac7637824ae356bcf01c6a2cd423eda43"
+  },
+  "attribute_protocol_sha256": "82fcc787327e38792d60ad31eb0c103b2338a7c8f2806fb167fe40d55c8f8308",
+  "annotation_sha256": "8fc84c850a4ac698e64af3d260edc5a336640d6ce21259bd40dce692e89db579"
+}
