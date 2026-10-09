@@ -1,0 +1,98 @@
+{
+  "iteration": 5,
+  "dataset": "cifar100",
+  "seed": 0,
+  "baseline_seed": 42,
+  "epochs": 40,
+  "output": "outputs/cifar100/validation_joint_v5",
+  "cases": [
+    {
+      "mode": "clean",
+      "concept_weight": 1.0,
+      "cbl_lr": 1e-05
+    },
+    {
+      "mode": "mean_only",
+      "concept_weight": 1.0,
+      "cbl_lr": 1e-05
+    },
+    {
+      "mode": "adapter_matched",
+      "concept_weight": 1.0,
+      "cbl_lr": 1e-05
+    },
+    {
+      "mode": "diag_noise",
+      "concept_weight": 1.0,
+      "cbl_lr": 1e-05
+    },
+    {
+      "mode": "shared_noise",
+      "concept_weight": 1.0,
+      "cbl_lr": 1e-05
+    },
+    {
+      "mode": "shared_no_sampling",
+      "concept_weight": 1.0,
+      "cbl_lr": 1e-05
+    },
+    {
+      "mode": "fixed_structured",
+      "concept_weight": 1.0,
+      "cbl_lr": 1e-05
+    },
+    {
+      "mode": "fixed_isotropic",
+      "concept_weight": 1.0,
+      "cbl_lr": 1e-05
+    },
+    {
+      "mode": "clean",
+      "concept_weight": 5.0,
+      "cbl_lr": 3e-06
+    },
+    {
+      "mode": "mean_only",
+      "concept_weight": 5.0,
+      "cbl_lr": 3e-06
+    },
+    {
+      "mode": "adapter_matched",
+      "concept_weight": 5.0,
+      "cbl_lr": 3e-06
+    },
+    {
+      "mode": "diag_noise",
+      "concept_weight": 5.0,
+      "cbl_lr": 3e-06
+    },
+    {
+      "mode": "shared_noise",
+      "concept_weight": 5.0,
+      "cbl_lr": 3e-06
+    },
+    {
+      "mode": "shared_no_sampling",
+      "concept_weight": 5.0,
+      "cbl_lr": 3e-06
+    },
+    {
+      "mode": "fixed_structured",
+      "concept_weight": 5.0,
+      "cbl_lr": 3e-06
+    },
+    {
+      "mode": "fixed_isotropic",
+      "concept_weight": 5.0,
+      "cbl_lr": 3e-06
+    }
+  ],
+  "test_access": false,
+  "causal_contrast": "shared_noise vs shared_no_sampling: same generator, prior, budget; training sampling toggled",
+  "source_sha256": {
+    "joint_noise.py": "705208f58ad0ebb2089482292b5894198614bba18f65a1a6b2198ba4803e1de2",
+    "joint_train.py": "946abc3f2761ecd38576e2f435c4d76b92e6989499b3dc8343a40f6fce6b208d",
+    "joint_screen.py": "4929c1107b5a0864b4bf199ddd95f51d0fdc5d4c90d4930dbc7f162de41c7088",
+    "directions.py": "6e20a11786e2af3a8342d8e378e1e8443d7816558422fdb91a63d6e3b459e2b4"
+  }
+}

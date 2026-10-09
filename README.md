@@ -44,7 +44,7 @@ python -m pytest tests -q
 
 八类对照匹配初始化、数据顺序、分类头、优化步数和每图 CBL 前向次数。共享关闭采样对照保留相同生成器、尺度先验与能量项，仅关闭采样。两套预登记配置各训练 40 epoch。
 
-CUB 的 16 组已完成并冻结所选权重。用两组独立随机数、各 256 次采样复核，共享噪声验证准确率为 68.75% / 68.80%，没有超过关闭训练采样对照的 68.95%。干净联合微调为 68.85% / 68.80%。人工属性保守映射覆盖 68/312 属性，只在训练集筛选属性与设阈值，验证排除 certainty < 3。原基线属性 BA / AUROC 为 67.43% / 72.52%；共享噪声 BA 略降，不能宣称解释性能提升。此检查只评估整图属性预测，没有定位或因果干预结论。CIFAR-10/100 的同配置对照正在运行。
+CUB 的 16 组已完成并冻结所选权重。用两组独立随机数、各 256 次采样复核，共享噪声验证准确率为 68.75% / 68.80%，没有超过关闭训练采样对照的 68.95%。干净联合微调为 68.85% / 68.80%。人工属性保守映射覆盖 68/312 属性，只在训练集筛选属性与设阈值，验证排除 certainty < 3。原基线属性 BA / AUROC 为 67.43% / 72.52%；共享噪声 BA 略降，不能宣称解释性能提升。此检查只评估整图属性预测，没有定位或因果干预结论。CIFAR-10/100 的同配置 16 组对照及独立 MC 复核均已完成。
 
 ```bash
 python -m ps_pi.directions --dataset cub
@@ -54,4 +54,30 @@ python -m ps_pi.joint_audit --dataset cub --samples 256
 python -m ps_pi.export_joint
 ```
 
-精简图表和来源摘要见 [主要进展](reports/validation_v1/主要实验进展.md)，登记方案见 [联合训练协议](reports/validation_joint_v5/registered_plan.json)。当前 28 项测试通过。Goal 保持 active；仍需可靠优于最强对照的收益、锁定方案后的独立五种子和最终测试证据。
+精简图表和来源摘要见 [主要进展](reports/validation_v1/主要实验进展.md)，登记方案见 [联合训练协议](reports/validation_joint_v5/registered_plan.json)。当前 41 项测试通过。Goal 保持 active；仍需可靠优于最强对照的收益、锁定方案后的独立五种子和最终测试证据。
+
+
+## 残差方向、预测似然与稀疏头适配
+
+第五轮三个数据集共 48 组；后续四个 CUB 队列各 16 组，分别检验训练类内残差方向、训练敏感度尺度校准、联合边际似然及原稀疏头适配。加上前四轮 42 组，目前主要报告汇总 170 条完整验证运行，均有预登记控制、固定选模和独立高采样复核。只有一个基线/适配训练种子，重复控制不是独立重复。
+
+残差几何仅使用训练样本，移除训练类中心和概念均值方向空间。在相同输入能量下 CUB 训练子集的概念漂移从 0.105 降至 0.022；后续尺度 0.481 来自训练敏感度比值，不是验证搜索。CUB 同容量适配从基线 68.70% 达到 69.45%，最新共享噪声复核 69.30%，尚无独立随机收益。稀疏头更新仅允许原 663 个非零位置，所有对照采用相同支持与目标。原始属性 BA 略降，不能宣称解释提升。
+
+```bash
+python -m ps_pi.residual_directions --dataset cub
+python -m ps_pi.residual_diagnostic --dataset cub
+python -m ps_pi.joint_residual_screen
+python -m ps_pi.joint_residual_calibrated_screen
+python -m ps_pi.joint_residual_predictive_screen
+python -m ps_pi.joint_sparse_head_screen
+python -m ps_pi.joint_sparse_head_audit
+python -m ps_pi.expected_concept_audit --input outputs/cub/validation_joint_sparse_head_v9
+python -m ps_pi.export_major
+```
+
+`expected_concepts` 对官方 Linear–ReLU–Linear CBL 的条件高斯扰动解析计算概念期望，区分非线性均值变化与 MC 分类概率；不是重新训练的控制，也不能据此归因训练随机性。完整摘要和源代码哈希见 `reports/joint_followup/`，当前状态见 `reports/CURRENT_STATE.json`。
+
+第十轮特征层 mixup 的 16 组训练及复核已完成：固定 alpha=0.2，将特征、生成器上下文、概念目标和类别软标签按同一权重混合，保留同预算的八类对照。独立混合随机数状态随断点保存；原始验证输入保持完整。完成前不进入主要结果，最终五种子及测试仍待可靠候选后进行。
+
+
+特征 mixup 首种子共享模型独立 MC 为 69.40%，同配置关闭采样为 69.30%，对角噪声为 69.35%–69.40%。这只是很小的单种子随机训练差异，尚无共享结构优势，人工属性 BA 下降约 0.17 pp。第十一轮 `python -m ps_pi.feature_mixup_replication` 已登记并启动其余四个适配种子的四类配对控制，固定基线种子42、概念权重1 / CBL lr1e-5、alpha0.2；自动接续 MC 与解析均值复核。共用完整基线，不能宣称独立五基线证据或最终测试。

@@ -1,55 +1,77 @@
 {
-  "time": 1791523557.3630118,
+  "time": 1791529649.6688604,
   "goal_status": "active",
   "completed_baselines": 3,
   "baseline_models": 6,
-  "completed_validation_controls": 62,
-  "complete_reported_cohort_controls": 58,
-  "joint_completed_by_dataset": {
-    "cifar10": 1,
-    "cifar100": 3,
-    "cub": 16
-  },
-  "joint_registered_per_dataset": 16,
+  "complete_reported_cohort_controls": 170,
+  "completed_joint_cohort_controls": 128,
+  "previous_cohort_controls": 42,
+  "completed_joint_cohorts": [
+    [
+      "cifar10",
+      "validation_joint_v5"
+    ],
+    [
+      "cifar100",
+      "validation_joint_v5"
+    ],
+    [
+      "cub",
+      "validation_joint_v5"
+    ],
+    [
+      "cub",
+      "validation_joint_residual_v6"
+    ],
+    [
+      "cub",
+      "validation_joint_residual_calibrated_v7"
+    ],
+    [
+      "cub",
+      "validation_joint_residual_predictive_v8"
+    ],
+    [
+      "cub",
+      "validation_joint_sparse_head_v9"
+    ],
+    [
+      "cub",
+      "validation_joint_feature_mixup_v10"
+    ]
+  ],
   "running_queues": {
-    "cifar10": {
+    "cub_feature_mixup_replication_v11": {
       "phase": "running",
-      "pid": 1433174,
-      "child_pid": 1434426,
-      "index": 1,
+      "pid": 1509988,
+      "child_pid": 1511552,
+      "index": 5,
       "total": 16,
       "case": {
-        "mode": "mean_only",
-        "concept_weight": 1.0,
-        "cbl_lr": 1e-05
+        "seed": 2,
+        "mode": "diag_noise"
       },
-      "time": 1791523392.8951507
-    },
-    "cifar100": {
-      "phase": "running",
-      "pid": 1431566,
-      "child_pid": 1435477,
-      "index": 3,
-      "total": 16,
-      "case": {
-        "mode": "diag_noise",
-        "concept_weight": 1.0,
-        "cbl_lr": 1e-05
-      },
-      "time": 1791523495.877559
+      "time": 1791529634.438181
     }
   },
-  "tested_protocol_checks": 28,
+  "launch": {
+    "manager_pid": 1509988,
+    "module": "ps_pi.feature_mixup_replication",
+    "output": "outputs/cub/validation_feature_mixup_replication_v11"
+  },
+  "tested_protocol_checks": 41,
   "test_features_encoded": false,
+  "test_used_for_selection": false,
   "five_seed_final_evidence": false,
   "native_attribute_validation": {
     "dataset": "cub",
     "attributes": 68,
+    "total_attributes": 312,
     "certainty_minimum": 3,
     "mapping_and_thresholds_split": "train",
     "evaluation_split": "val"
   },
-  "current_result": "CUB joint noise does not beat strongest deterministic controls; native attribute BA slightly decreases",
-  "next_stage": "complete registered CIFAR joint cohorts, then revise only from train/validation evidence",
+  "current_result": "CUB strongest deterministic 69.45%; feature-mixup shared independent MC69.40 vs same-preset sampling-disabled69.30; diagonal69.35..69.40; native BA decreases0.17pp; conditional replication ongoing",
+  "next_stage": "four further adaptation seeds under fixed baseline42, preset A; not final independent-baseline evidence",
   "report": "../Essay/PS-Shared/report/主要实验进展.md"
 }

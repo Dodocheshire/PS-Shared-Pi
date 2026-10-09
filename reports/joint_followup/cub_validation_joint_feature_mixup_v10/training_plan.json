@@ -1,0 +1,117 @@
+{
+  "iteration": 10,
+  "dataset": "cub",
+  "seed": 0,
+  "baseline_seed": 42,
+  "epochs": 40,
+  "mixup_alpha": 0.2,
+  "calibration": {
+    "initial_scale": 0.48118927546683576,
+    "min_scale": 0.09623785509336716,
+    "max_scale": 1.4435678264005074,
+    "reference_scale": 0.1,
+    "reference_drift": 0.10489454865455627,
+    "residual_drift": 0.02179902046918869,
+    "rule": "reference scale times semantic/residual training RMS concept drift",
+    "selection_split": "train",
+    "val_used": false,
+    "test_used": false,
+    "limits": "First-order sensitivity calibration, not an exact nonlinear drift match or validation-selected optimum."
+  },
+  "calibration_sha256": "02fa0dd254fe27ad19ce2d890c410262c39588f95c38ed82353688449096f61a",
+  "output": "outputs/cub/validation_joint_feature_mixup_v10",
+  "cases": [
+    {
+      "mode": "clean",
+      "concept_weight": 1.0,
+      "cbl_lr": 1e-05
+    },
+    {
+      "mode": "mean_only",
+      "concept_weight": 1.0,
+      "cbl_lr": 1e-05
+    },
+    {
+      "mode": "adapter_matched",
+      "concept_weight": 1.0,
+      "cbl_lr": 1e-05
+    },
+    {
+      "mode": "diag_noise",
+      "concept_weight": 1.0,
+      "cbl_lr": 1e-05
+    },
+    {
+      "mode": "shared_noise",
+      "concept_weight": 1.0,
+      "cbl_lr": 1e-05
+    },
+    {
+      "mode": "shared_no_sampling",
+      "concept_weight": 1.0,
+      "cbl_lr": 1e-05
+    },
+    {
+      "mode": "fixed_structured",
+      "concept_weight": 1.0,
+      "cbl_lr": 1e-05
+    },
+    {
+      "mode": "fixed_isotropic",
+      "concept_weight": 1.0,
+      "cbl_lr": 1e-05
+    },
+    {
+      "mode": "clean",
+      "concept_weight": 5.0,
+      "cbl_lr": 3e-06
+    },
+    {
+      "mode": "mean_only",
+      "concept_weight": 5.0,
+      "cbl_lr": 3e-06
+    },
+    {
+      "mode": "adapter_matched",
+      "concept_weight": 5.0,
+      "cbl_lr": 3e-06
+    },
+    {
+      "mode": "diag_noise",
+      "concept_weight": 5.0,
+      "cbl_lr": 3e-06
+    },
+    {
+      "mode": "shared_noise",
+      "concept_weight": 5.0,
+      "cbl_lr": 3e-06
+    },
+    {
+      "mode": "shared_no_sampling",
+      "concept_weight": 5.0,
+      "cbl_lr": 3e-06
+    },
+    {
+      "mode": "fixed_structured",
+      "concept_weight": 5.0,
+      "cbl_lr": 3e-06
+    },
+    {
+      "mode": "fixed_isotropic",
+      "concept_weight": 5.0,
+      "cbl_lr": 3e-06
+    }
+  ],
+  "test_access": false,
+  "causal_contrast": "shared_noise vs shared_no_sampling: same generator, prior, budget; training sampling toggled",
+  "source_sha256": {
+    "joint_noise.py": "705208f58ad0ebb2089482292b5894198614bba18f65a1a6b2198ba4803e1de2",
+    "joint_feature_mixup_train.py": "4bdadb933ef0c6fd70d614d46f4dccffcc5c9dbab904afbcdc3b40d9b51d01cc",
+    "joint_feature_mixup_screen.py": "c3c078b917ff5ece071a1d0f88b952c50928635491ac1c28c04717af23de5244",
+    "calibrated_scale.py": "fa8ea540fd2d1693f34abe28267fc538970e2d1dc2b1bfb9c7120b6326e0b422",
+    "residual_diagnostic.py": "29bd4430acc366428ecae55a2888983b5e1ff157523748a74f38e617f773443f",
+    "directions.py": "6e20a11786e2af3a8342d8e378e1e8443d7816558422fdb91a63d6e3b459e2b4",
+    "residual_directions.py": "a0a6161e2e41ecb2d6a3d81e25350da6900b44575d7121dd00c22f1730ae786b",
+    "mixup_likelihood.py": "1f5e3c8bd7f7f259218bbddc45645428958e9c7f974dd41b7924a552a47c0236"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "manager_pid": 1506056,
+  "module": "ps_pi.joint_feature_mixup_screen",
+  "output": "outputs/cub/validation_joint_feature_mixup_v10"
+}

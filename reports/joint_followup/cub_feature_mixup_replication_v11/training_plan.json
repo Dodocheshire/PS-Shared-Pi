@@ -1,0 +1,113 @@
+{
+  "iteration": 11,
+  "dataset": "cub",
+  "baseline_seed": 42,
+  "adaptation_seeds": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "reference_adaptation_seed": 0,
+  "reference_output": "outputs/cub/validation_joint_feature_mixup_v10",
+  "output": "outputs/cub/validation_feature_mixup_replication_v11",
+  "cases": [
+    {
+      "seed": 1,
+      "mode": "adapter_matched"
+    },
+    {
+      "seed": 1,
+      "mode": "diag_noise"
+    },
+    {
+      "seed": 1,
+      "mode": "shared_no_sampling"
+    },
+    {
+      "seed": 1,
+      "mode": "shared_noise"
+    },
+    {
+      "seed": 2,
+      "mode": "adapter_matched"
+    },
+    {
+      "seed": 2,
+      "mode": "diag_noise"
+    },
+    {
+      "seed": 2,
+      "mode": "shared_no_sampling"
+    },
+    {
+      "seed": 2,
+      "mode": "shared_noise"
+    },
+    {
+      "seed": 3,
+      "mode": "adapter_matched"
+    },
+    {
+      "seed": 3,
+      "mode": "diag_noise"
+    },
+    {
+      "seed": 3,
+      "mode": "shared_no_sampling"
+    },
+    {
+      "seed": 3,
+      "mode": "shared_noise"
+    },
+    {
+      "seed": 4,
+      "mode": "adapter_matched"
+    },
+    {
+      "seed": 4,
+      "mode": "diag_noise"
+    },
+    {
+      "seed": 4,
+      "mode": "shared_no_sampling"
+    },
+    {
+      "seed": 4,
+      "mode": "shared_noise"
+    }
+  ],
+  "epochs": 40,
+  "mixup_alpha": 0.2,
+  "concept_weight": 1.0,
+  "cbl_lr": 1e-05,
+  "calibration": {
+    "initial_scale": 0.48118927546683576,
+    "min_scale": 0.09623785509336716,
+    "max_scale": 1.4435678264005074,
+    "reference_scale": 0.1,
+    "reference_drift": 0.10489454865455627,
+    "residual_drift": 0.02179902046918869,
+    "rule": "reference scale times semantic/residual training RMS concept drift",
+    "selection_split": "train",
+    "val_used": false,
+    "test_used": false,
+    "limits": "First-order sensitivity calibration, not an exact nonlinear drift match or validation-selected optimum."
+  },
+  "calibration_sha256": "02fa0dd254fe27ad19ce2d890c410262c39588f95c38ed82353688449096f61a",
+  "selection": "same original per-run validation gates; independent MC does not reselect",
+  "scope": "conditional adaptation-seed replication with fixed seed-42 CBL/head/bank",
+  "limits": "not independent complete-baseline five-seed evidence or a final test result",
+  "reason": "preset A seed-0 shared noise exceeds same-preset deterministic controls; check reproducibility before any final selection",
+  "test_access": false,
+  "final_evidence": false,
+  "source_sha256": {
+    "feature_mixup_replication.py": "b0bf7105ed2fb6e9e361e8c6e5959680703acb18503a921386f7a1a15896cbdd",
+    "joint_feature_mixup_train.py": "4bdadb933ef0c6fd70d614d46f4dccffcc5c9dbab904afbcdc3b40d9b51d01cc",
+    "joint_feature_mixup_audit.py": "6ad5f3ce419ebff3794981a0380caf392a6e13d46735ecdd059fabc479cc49cf",
+    "expected_concept_audit.py": "7aac0c0911e9b4be6161cf7354187a21f224d753bbb69325ad0f7e451c38df91",
+    "mixup_likelihood.py": "1f5e3c8bd7f7f259218bbddc45645428958e9c7f974dd41b7924a552a47c0236",
+    "joint_noise.py": "705208f58ad0ebb2089482292b5894198614bba18f65a1a6b2198ba4803e1de2",
+    "calibrated_scale.py": "fa8ea540fd2d1693f34abe28267fc538970e2d1dc2b1bfb9c7120b6326e0b422"
+  }
+}

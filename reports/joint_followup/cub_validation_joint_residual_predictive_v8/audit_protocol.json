@@ -1,0 +1,34 @@
+{
+  "dataset": "cub",
+  "samples": 256,
+  "independent_mc_seeds": [
+    9071,
+    9072
+  ],
+  "attribute_mc_seed": 9081,
+  "checkpoint_selection_frozen": true,
+  "test_used": false,
+  "source_sha256": "aea69c018f2eb7922a48bb524dc2fbd914c5f9abcde1c61282d0180016764838",
+  "baseline_sha256": "a9185fbd4e7e3b6384a80bfc8a40002ec7ff68be6e1059e410e1f0a108865614",
+  "directions_sha256": "bd62e1f484a34522bacb5b2d154075d337dd448185cb4ab1be5fda90679781f3",
+  "checkpoint_sha256": {
+    "outputs/cub/validation_joint_residual_predictive_v8/adapter_matched_seed0_cw1_lr1e-05/model.pt": "87a92db5b2ca098d30a4b71f84a7a8fd47579e9f68f420ede68c57a0fdd5dbd0",
+    "outputs/cub/validation_joint_residual_predictive_v8/adapter_matched_seed0_cw5_lr3e-06/model.pt": "3f3f1134152a6e531c0c6ae88b4c996dad0caf1a877efae0bb42cad800186b2a",
+    "outputs/cub/validation_joint_residual_predictive_v8/clean_seed0_cw1_lr1e-05/model.pt": "742ee539d3afae90a463f0b3bb3626706830fe6e273596bcef382fca1187c86a",
+    "outputs/cub/validation_joint_residual_predictive_v8/clean_seed0_cw5_lr3e-06/model.pt": "9f3b445baec1756bbef14c1d0483cfde8d28509925c3949f6109e0edd68506cf",
+    "outputs/cub/validation_joint_residual_predictive_v8/diag_noise_seed0_cw1_lr1e-05/model.pt": "e99d49160254939e7b11e63a61c9af548e21eb407207fd23519c1b1aafb8fedb",
+    "outputs/cub/validation_joint_residual_predictive_v8/diag_noise_seed0_cw5_lr3e-06/model.pt": "c2a88cf6c6728706116133854028f990f44b4472f1a76886bbe6d573cb0a9d00",
+    "outputs/cub/validation_joint_residual_predictive_v8/fixed_isotropic_seed0_cw1_lr1e-05/model.pt": "c9e1d959f3df056b57566cdd34bae969a0d36a041005d76cf8dc721ba364d974",
+    "outputs/cub/validation_joint_residual_predictive_v8/fixed_isotropic_seed0_cw5_lr3e-06/model.pt": "42cd22d67cdf851bf4011334aa94af42a77ae38eaed0564551238932a41df0d9",
+    "outputs/cub/validation_joint_residual_predictive_v8/fixed_structured_seed0_cw1_lr1e-05/model.pt": "7bc2c9f539dcafb5f39aaf73901138bc7f77c609106505a7a3e7915032dabbc3",
+    "outputs/cub/validation_joint_residual_predictive_v8/fixed_structured_seed0_cw5_lr3e-06/model.pt": "7b2a95de29590279b0c8238a15792ac53bfaa878e6f35c0571916ca36a21cad8",
+    "outputs/cub/validation_joint_residual_predictive_v8/mean_only_seed0_cw1_lr1e-05/model.pt": "68aac5e766b9c2634ab54f9379ac093d87600d2be5e463e0e858f553dc6baef5",
+    "outputs/cub/validation_joint_residual_predictive_v8/mean_only_seed0_cw5_lr3e-06/model.pt": "99e7a3da5d6692418336c0fe0a84fa007dcef2eaea0206240e8540c5a6e143a6",
+    "outputs/cub/validation_joint_residual_predictive_v8/shared_no_sampling_seed0_cw1_lr1e-05/model.pt": "ae0c34fd08e54277424ae88dc3ce8098f06b25b68c9a3fab3f62701a5477ff66",
+    "outputs/cub/validation_joint_residual_predictive_v8/shared_no_sampling_seed0_cw5_lr3e-06/model.pt": "192640285c6e484ed66034d9ca3ae7ebf143c1caea095fa7e4431da11c28d3bd",
+    "outputs/cub/validation_joint_residual_predictive_v8/shared_noise_seed0_cw1_lr1e-05/model.pt": "7f10f21c6919ab3c1a1d23ce0cf7fce2cea34a53d8b1226d220d04f0ddd25c02",
+    "outputs/cub/validation_joint_residual_predictive_v8/shared_noise_seed0_cw5_lr3e-06/model.pt": "865b01c70c539974456454e7bddab04fef1b6701d7d4e7d6aa84da801fb7fcb7"
+  },
+  "attribute_protocol_sha256": "985e46202403608ae90e67e765d0a6b425e5b055ad19e1803ad5b106e711c958",
+  "annotation_sha256": "8fc84c850a4ac698e64af3d260edc5a336640d6ce21259bd40dce692e89db579"
+}

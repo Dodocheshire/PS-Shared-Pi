@@ -1,0 +1,99 @@
+{
+  "iteration": 6,
+  "dataset": "cub",
+  "seed": 0,
+  "baseline_seed": 42,
+  "epochs": 40,
+  "output": "outputs/cub/validation_joint_residual_v6",
+  "cases": [
+    {
+      "mode": "clean",
+      "concept_weight": 1.0,
+      "cbl_lr": 1e-05
+    },
+    {
+      "mode": "mean_only",
+      "concept_weight": 1.0,
+      "cbl_lr": 1e-05
+    },
+    {
+      "mode": "adapter_matched",
+      "concept_weight": 1.0,
+      "cbl_lr": 1e-05
+    },
+    {
+      "mode": "diag_noise",
+      "concept_weight": 1.0,
+      "cbl_lr": 1e-05
+    },
+    {
+      "mode": "shared_noise",
+      "concept_weight": 1.0,
+      "cbl_lr": 1e-05
+    },
+    {
+      "mode": "shared_no_sampling",
+      "concept_weight": 1.0,
+      "cbl_lr": 1e-05
+    },
+    {
+      "mode": "fixed_structured",
+      "concept_weight": 1.0,
+      "cbl_lr": 1e-05
+    },
+    {
+      "mode": "fixed_isotropic",
+      "concept_weight": 1.0,
+      "cbl_lr": 1e-05
+    },
+    {
+      "mode": "clean",
+      "concept_weight": 5.0,
+      "cbl_lr": 3e-06
+    },
+    {
+      "mode": "mean_only",
+      "concept_weight": 5.0,
+      "cbl_lr": 3e-06
+    },
+    {
+      "mode": "adapter_matched",
+      "concept_weight": 5.0,
+      "cbl_lr": 3e-06
+    },
+    {
+      "mode": "diag_noise",
+      "concept_weight": 5.0,
+      "cbl_lr": 3e-06
+    },
+    {
+      "mode": "shared_noise",
+      "concept_weight": 5.0,
+      "cbl_lr": 3e-06
+    },
+    {
+      "mode": "shared_no_sampling",
+      "concept_weight": 5.0,
+      "cbl_lr": 3e-06
+    },
+    {
+      "mode": "fixed_structured",
+      "concept_weight": 5.0,
+      "cbl_lr": 3e-06
+    },
+    {
+      "mode": "fixed_isotropic",
+      "concept_weight": 5.0,
+      "cbl_lr": 3e-06
+    }
+  ],
+  "test_access": false,
+  "causal_contrast": "shared_noise vs shared_no_sampling: same generator, prior, budget; training sampling toggled",
+  "source_sha256": {
+    "joint_noise.py": "705208f58ad0ebb2089482292b5894198614bba18f65a1a6b2198ba4803e1de2",
+    "joint_residual_train.py": "4e90a243c28dc829c3f4e21ef7f09e4b4b30618a525a5a48ea0d95da6b75657c",
+    "joint_residual_screen.py": "3b23f6df8f927727aa5030c986d08986c0a51a2bb727139f64d1c7090f5fb21b",
+    "directions.py": "6e20a11786e2af3a8342d8e378e1e8443d7816558422fdb91a63d6e3b459e2b4",
+    "residual_directions.py": "a0a6161e2e41ecb2d6a3d81e25350da6900b44575d7121dd00c22f1730ae786b"
+  }
+}

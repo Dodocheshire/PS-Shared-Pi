@@ -1,0 +1,32 @@
+{
+  "dataset": "cifar100",
+  "samples": 256,
+  "independent_mc_seeds": [
+    9071,
+    9072
+  ],
+  "attribute_mc_seed": 9081,
+  "checkpoint_selection_frozen": true,
+  "test_used": false,
+  "source_sha256": "0c6a0be5911c674ad3c0971bf88f4e0b58939eae04ed382ee836977b43e3b5cb",
+  "baseline_sha256": "c69cc917c760e4ec3dc13c10a21de9687e08e6cb09ec78b0e6b78355c4eeccc5",
+  "directions_sha256": "e3021802302eabab7eda079940c5182a4a7d95ee34d8e2341a537c63151cd4c1",
+  "checkpoint_sha256": {
+    "outputs/cifar100/validation_joint_v5/adapter_matched_seed0_cw1_lr1e-05/model.pt": "0daedac795b3c3da47e25dc96b9c75ae9bdea570f66f13f2b9be0e697496bb94",
+    "outputs/cifar100/validation_joint_v5/adapter_matched_seed0_cw5_lr3e-06/model.pt": "20409bf57040dc622ec65d7f6593c9148a85a8bf0e568d2736bac2784f5ddd90",
+    "outputs/cifar100/validation_joint_v5/clean_seed0_cw1_lr1e-05/model.pt": "8600babc913cdcc5dc38805bd355d8f2369b9c0cb65a83e0bb6aed5b3a2fed45",
+    "outputs/cifar100/validation_joint_v5/clean_seed0_cw5_lr3e-06/model.pt": "38e0ce142053eee5ee9af19708f881ed20bb57b7e850e8995727a9d8fd2a02e5",
+    "outputs/cifar100/validation_joint_v5/diag_noise_seed0_cw1_lr1e-05/model.pt": "9fbe486f81a29fa75da26322d8f281486319dbc020f247b51f4f50e4dbe7cd71",
+    "outputs/cifar100/validation_joint_v5/diag_noise_seed0_cw5_lr3e-06/model.pt": "8b5964a7c38985b6ccdf0244cd376cb519ee7909bb9a91e8d24ad36d1066de49",
+    "outputs/cifar100/validation_joint_v5/fixed_isotropic_seed0_cw1_lr1e-05/model.pt": "654dfeed27b65459a0635041a5fc2b5e0f4f9d68983f28ca3d7b9fe109e6b8d1",
+    "outputs/cifar100/validation_joint_v5/fixed_isotropic_seed0_cw5_lr3e-06/model.pt": "8ca1f29c150f07ffe042f337e0a169d45bc3a6a95f78abb348df3a4fd61bb39e",
+    "outputs/cifar100/validation_joint_v5/fixed_structured_seed0_cw1_lr1e-05/model.pt": "0d4f3c2e776386784b370ab92656f85581bf0283234bb966a232052cf968fa55",
+    "outputs/cifar100/validation_joint_v5/fixed_structured_seed0_cw5_lr3e-06/model.pt": "22177b011d5497d6bc05cf2041a6aea140295f00ece6a7451c4ec43f186fd6ae",
+    "outputs/cifar100/validation_joint_v5/mean_only_seed0_cw1_lr1e-05/model.pt": "4d994b5ce5763859ea684af67556bc6e27d106e83942c33c2ae26c5e06c1defe",
+    "outputs/cifar100/validation_joint_v5/mean_only_seed0_cw5_lr3e-06/model.pt": "98be030ad8f63710000d35532699a3f39d668091a11fb04785f69b7e71ebce0b",
+    "outputs/cifar100/validation_joint_v5/shared_no_sampling_seed0_cw1_lr1e-05/model.pt": "935e3ab8a23322903e26b213e4cf1159cf723d8109151546bf023390b7ac43bb",
+    "outputs/cifar100/validation_joint_v5/shared_no_sampling_seed0_cw5_lr3e-06/model.pt": "d8e1f6f391025ca67a52e23387b084b5925da51840ce213bbe3dbb2c84a2a379",
+    "outputs/cifar100/validation_joint_v5/shared_noise_seed0_cw1_lr1e-05/model.pt": "36f56e15c13e52df16a8978b1be0552193c2df6b733fd83cd9d304f451f240dc",
+    "outputs/cifar100/validation_joint_v5/shared_noise_seed0_cw5_lr3e-06/model.pt": "10279162afc3a5f27e041c3b576fab41022c22c2ea73dfdd374cfd96d882db8e"
+  }
+}

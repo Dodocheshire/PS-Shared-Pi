@@ -1,0 +1,32 @@
+{
+  "dataset": "cifar10",
+  "samples": 256,
+  "independent_mc_seeds": [
+    9071,
+    9072
+  ],
+  "attribute_mc_seed": 9081,
+  "checkpoint_selection_frozen": true,
+  "test_used": false,
+  "source_sha256": "0c6a0be5911c674ad3c0971bf88f4e0b58939eae04ed382ee836977b43e3b5cb",
+  "baseline_sha256": "2ef42fbb02449b4a34305ea785cba1c17b24bf2a5073f989635ec146f24cfdd9",
+  "directions_sha256": "0b46def524acb049a4e0d87a50ce5942c8959cfa857a756fc05b5b3854dd38fb",
+  "checkpoint_sha256": {
+    "outputs/cifar10/validation_joint_v5/adapter_matched_seed0_cw1_lr1e-05/model.pt": "a985d99f4f5f85cbcd0b341b88d65f16b8083517d72093a86b729cfeb6331a85",
+    "outputs/cifar10/validation_joint_v5/adapter_matched_seed0_cw5_lr3e-06/model.pt": "66fb89165d4368df188a6d6dbd928ee152f7c5e822feb436929b0caa88a26377",
+    "outputs/cifar10/validation_joint_v5/clean_seed0_cw1_lr1e-05/model.pt": "7d6b08891f3e815ecdcbb12498c7d80de5b5a880e796a8e901ff7ee3065d6cf5",
+    "outputs/cifar10/validation_joint_v5/clean_seed0_cw5_lr3e-06/model.pt": "47da82eb6bb2e3907e2b76bf635b6cf3827090cf3e6a056a2ef070d17f66cc61",
+    "outputs/cifar10/validation_joint_v5/diag_noise_seed0_cw1_lr1e-05/model.pt": "721102e462c3078866fc912db75e0a9e851a7255b9bc25242770797c9c8c3398",
+    "outputs/cifar10/validation_joint_v5/diag_noise_seed0_cw5_lr3e-06/model.pt": "837da7f066b38d85079d98ada1c41adfb1836a975f4226d25b2193189cc52f4f",
+    "outputs/cifar10/validation_joint_v5/fixed_isotropic_seed0_cw1_lr1e-05/model.pt": "c56eaa8f594169773feb868901495852bd8c8e2a69bbf397ea3aaff2b4a376cc",
+    "outputs/cifar10/validation_joint_v5/fixed_isotropic_seed0_cw5_lr3e-06/model.pt": "fb08e833b76c43ba08da41eeb3ad6ed81ba2c2f3804ebf037384073211c5cf54",
+    "outputs/cifar10/validation_joint_v5/fixed_structured_seed0_cw1_lr1e-05/model.pt": "9031903de6ce13dfed152b6f95be6f618ff5703a2ec7ecbbffb55918db9785d0",
+    "outputs/cifar10/validation_joint_v5/fixed_structured_seed0_cw5_lr3e-06/model.pt": "64e5a44504f051319f81d84f3dfff3024a431427f1569bf00117c2eba708062d",
+    "outputs/cifar10/validation_joint_v5/mean_only_seed0_cw1_lr1e-05/model.pt": "caf8ea0a976e9b2179217017c54758c5502a134363fde3f117e6ea564c35b44f",
+    "outputs/cifar10/validation_joint_v5/mean_only_seed0_cw5_lr3e-06/model.pt": "4244e1044812ad9a3d07ad7ce8e3b578ab1f801497f3053ca2e801aca65e13da",
+    "outputs/cifar10/validation_joint_v5/shared_no_sampling_seed0_cw1_lr1e-05/model.pt": "38e088d7593a32577b6528354e5145b96a222f0d6368d7d77854dae8804f02bd",
+    "outputs/cifar10/validation_joint_v5/shared_no_sampling_seed0_cw5_lr3e-06/model.pt": "d0f1d3177a352cc008bf783dca5317a9baed52ac915e30aa455660e405f916a1",
+    "outputs/cifar10/validation_joint_v5/shared_noise_seed0_cw1_lr1e-05/model.pt": "5bad847d5da2aa9e5652f19e2793de0aaaa3e75c6003d3272d98e9cba8605736",
+    "outputs/cifar10/validation_joint_v5/shared_noise_seed0_cw5_lr3e-06/model.pt": "224afa7b51c6b0684e6fd3a2d8b7af1e9104d254b7ef45f58e1e2d62368a1524"
+  }
+}

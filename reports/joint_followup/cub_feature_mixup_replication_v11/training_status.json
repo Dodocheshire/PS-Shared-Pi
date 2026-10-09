@@ -1,0 +1,12 @@
+{
+  "phase": "running",
+  "pid": 1509988,
+  "child_pid": 1511552,
+  "index": 5,
+  "total": 16,
+  "case": {
+    "seed": 2,
+    "mode": "diag_noise"
+  },
+  "time": 1791529634.438181
+}

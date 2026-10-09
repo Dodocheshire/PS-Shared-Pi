@@ -1,0 +1,34 @@
+{
+  "dataset": "cub",
+  "samples": 256,
+  "independent_mc_seeds": [
+    9071,
+    9072
+  ],
+  "attribute_mc_seed": 9081,
+  "checkpoint_selection_frozen": true,
+  "test_used": false,
+  "source_sha256": "da74a5fbea57663b5af23656c9c7cb94201eb70dcb9e769c2a0750eca6aea345",
+  "baseline_sha256": "a9185fbd4e7e3b6384a80bfc8a40002ec7ff68be6e1059e410e1f0a108865614",
+  "directions_sha256": "bd62e1f484a34522bacb5b2d154075d337dd448185cb4ab1be5fda90679781f3",
+  "checkpoint_sha256": {
+    "outputs/cub/validation_joint_sparse_head_v9/adapter_matched_seed0_cw1_lr1e-05/model.pt": "78f4f931afa6c56f3392248986645ef795eab176b6984f8a4f8748535f6e5e84",
+    "outputs/cub/validation_joint_sparse_head_v9/adapter_matched_seed0_cw5_lr3e-06/model.pt": "98b22a66bddb1d0286e32db4c69556f6b93b33dc71c71e515739cb1537ae5dd5",
+    "outputs/cub/validation_joint_sparse_head_v9/clean_seed0_cw1_lr1e-05/model.pt": "cb3320043925650cc03a35d023278cce4adf074a1bea8397867aed40c19885ef",
+    "outputs/cub/validation_joint_sparse_head_v9/clean_seed0_cw5_lr3e-06/model.pt": "f0039c6d2e3ce98a80acf4a6851a7003ccc4aa6e98c2360b4220070bb6c07c93",
+    "outputs/cub/validation_joint_sparse_head_v9/diag_noise_seed0_cw1_lr1e-05/model.pt": "af66f5c054825e63ca72e26dfe23bf7235c6175822d534fce51da379935b8a71",
+    "outputs/cub/validation_joint_sparse_head_v9/diag_noise_seed0_cw5_lr3e-06/model.pt": "6e5c15e649f94226d6c019ac8c464cf98a7c7f485f6abe20fd01fd55e10335b9",
+    "outputs/cub/validation_joint_sparse_head_v9/fixed_isotropic_seed0_cw1_lr1e-05/model.pt": "32fe414b5a2df67338b5974a34fc3f20b6e2fd4f4808caceac8722c6d1f6251a",
+    "outputs/cub/validation_joint_sparse_head_v9/fixed_isotropic_seed0_cw5_lr3e-06/model.pt": "cb91da4bdcdfdb0e149f595a2bbfe1b07fa796c3d1f9e646552d7776b987890b",
+    "outputs/cub/validation_joint_sparse_head_v9/fixed_structured_seed0_cw1_lr1e-05/model.pt": "1d3b23e05e493ac1325a4f7c2183c7e97246024b96b5cff954361d255a37a1ca",
+    "outputs/cub/validation_joint_sparse_head_v9/fixed_structured_seed0_cw5_lr3e-06/model.pt": "84febcacf98f8282eb5d32fbc29122a8b038da63d4fc6d2d191f6500a7a34ec8",
+    "outputs/cub/validation_joint_sparse_head_v9/mean_only_seed0_cw1_lr1e-05/model.pt": "fba7b9a06786831b6756a1d11cb5ac22090f54624cbb3baa77c4c7f23582d07d",
+    "outputs/cub/validation_joint_sparse_head_v9/mean_only_seed0_cw5_lr3e-06/model.pt": "c280d3d07afae67d9403e778bd1107f7d5bab32c6505642669c8c6e8d87f422a",
+    "outputs/cub/validation_joint_sparse_head_v9/shared_no_sampling_seed0_cw1_lr1e-05/model.pt": "968582e20d216a1133e04530382d6fbd443db71c757fb07bb4596b7a41766007",
+    "outputs/cub/validation_joint_sparse_head_v9/shared_no_sampling_seed0_cw5_lr3e-06/model.pt": "7bb12712451ab25f35815aed4fe2143aa1e36eed5b6966fde27558693775ae2f",
+    "outputs/cub/validation_joint_sparse_head_v9/shared_noise_seed0_cw1_lr1e-05/model.pt": "4430ddd5cb0b0e8dcef08caed5542daeba16e3c4e90fddc51efea28210082caf",
+    "outputs/cub/validation_joint_sparse_head_v9/shared_noise_seed0_cw5_lr3e-06/model.pt": "44969dbf52a6c98f8cba4a38e1ac746696d10afaa9d17dd4a5e686052a753c64"
+  },
+  "attribute_protocol_sha256": "985e46202403608ae90e67e765d0a6b425e5b055ad19e1803ad5b106e711c958",
+  "annotation_sha256": "8fc84c850a4ac698e64af3d260edc5a336640d6ce21259bd40dce692e89db579"
+}
