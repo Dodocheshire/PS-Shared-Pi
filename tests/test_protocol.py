@@ -34,3 +34,21 @@ def test_official_cifar_split_maps_labels_and_partitions():
     assert set(indices['train']).isdisjoint(indices['val'])
     assert set(indices['train'])|set(indices['val'])==set(range(50000))
     assert all(len(value)==64 for value in hashes.values())
+
+
+def test_official_cifar100_and_cub_split_mapping():
+    from pathlib import Path
+    import pytest
+    from torchvision.datasets import CIFAR100, ImageFolder
+    root=Path('/home/pengcheng/VLG-CBM/datasets')
+    if not (root/'cifar-100-python').exists() or not (root/'CUB/train').exists():
+        pytest.skip('Native CIFAR-100/CUB datasets not present')
+    # CIFAR-100 has one repeated filename across different fine classes.
+    # Class-qualified filenames must preserve both images.
+    cases=[('cifar100',CIFAR100(root,train=True),CIFAR100(root,train=False),45000,5000,10000),
+           ('cub',ImageFolder(root/'CUB/train'),ImageFolder(root/'CUB/test'),3994,2000,5794)]
+    for name,train,test,ntrain,nval,ntest in cases:
+        indices,_=official_indices(name,train,test)
+        assert [len(indices[k]) for k in ['train','val','test']]==[ntrain,nval,ntest]
+        assert set(indices['train']).isdisjoint(indices['val'])
+        assert set(indices['train'])|set(indices['val'])==set(range(len(train)))

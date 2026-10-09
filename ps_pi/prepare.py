@@ -5,9 +5,7 @@ from importlib.metadata import version
 import json
 from pathlib import Path
 import time
-import numpy as np
 import torch
-from sklearn.model_selection import train_test_split
 from torch.utils.data import DataLoader, Dataset, Subset
 from torchvision.datasets import CIFAR10, CIFAR100, ImageFolder
 from .common import ROOT, atomic_json, atomic_save, digest, gpu_lease, official_module
