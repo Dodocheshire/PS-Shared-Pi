@@ -1,10 +1,10 @@
 {
-  "time": 1791530626.2566733,
+  "time": 1791535947.157814,
   "goal_status": "active",
-  "completed_baselines": 3,
-  "baseline_models": 6,
-  "complete_reported_cohort_controls": 202,
-  "completed_joint_cohort_controls": 144,
+  "completed_baselines": 12,
+  "baseline_models": 24,
+  "complete_reported_cohort_controls": 234,
+  "completed_joint_cohort_controls": 176,
   "previous_cohort_controls": 42,
   "completed_joint_cohorts": [
     [
@@ -42,10 +42,46 @@
     [
       "cub",
       "validation_joint_robust_mixup_v12"
+    ],
+    [
+      "cub",
+      "validation_joint_feature_augmented_v13"
+    ],
+    [
+      "cub",
+      "validation_joint_observed_views_v14"
     ]
   ],
-  "running_queues": {},
-  "tested_protocol_checks": 44,
+  "running_queues": {
+    "full_baselines": {
+      "phase": "running",
+      "index": 9,
+      "total": 12,
+      "case": {
+        "dataset": "cifar100",
+        "seed": 44
+      },
+      "pid": 1553025,
+      "child_pid": 1601488,
+      "time": 1791535774.6363943,
+      "verified_live_cmdline": "/home/pengcheng/miniconda3/envs/pi-cbm/bin/python -u -m ps_pi.baseline --dataset cifar100 --seed 44 "
+    },
+    "native_supervised_v15": {
+      "phase": "running",
+      "pid": 1602200,
+      "child_pid": 1602264,
+      "index": 0,
+      "total": 16,
+      "case": {
+        "mode": "clean",
+        "concept_weight": 1.0,
+        "cbl_lr": 1e-05
+      },
+      "time": 1791535818.5637555,
+      "verified_live_cmdline": "/home/pengcheng/miniconda3/envs/pi-cbm/bin/python -u -m ps_pi.joint_native_training_train --dataset cub --mode clean --concept-weight 1.0 --cbl-lr 1e-05 --seed 0 --epochs 40 --output outputs/cub/validation_joint_native_training_v15 --initial-scale 0.3092943914706002 --min-scale 0.06185887829412005 --max-scale 0.9278831744118007 "
+    }
+  },
+  "tested_protocol_checks": 52,
   "test_features_encoded": false,
   "test_used_for_selection": false,
   "five_seed_final_evidence": false,
@@ -57,8 +93,8 @@
     "mapping_and_thresholds_split": "train",
     "evaluation_split": "val"
   },
-  "current_result": "CUB deterministic69.45; five conditional adaptation seeds shared-minus-sampling-disabled -0.02pp, paired t95[-0.19,+0.15]; no reliable stochastic gain; native BA mean -0.24pp",
-  "next_stage": "Construct train-only noise covariance from observed weak-view feature differences; all modeled validation conclusions remain unchanged; goal active",
+  "current_result": "Completed observed-covariance and actual-view cohorts do not establish extra stochastic gain. CUB/CIFAR10 full baseline seeds42-46 reproduced. Native-supervised extension queued with all controls and stricter native gates.",
+  "next_stage": "Complete remaining CIFAR100 full baseline seeds and native-supervised V15 matched controls; review independent MC and native quality before locking any candidate.",
   "report": "../Essay/PS-Shared/report/主要实验进展.md",
   "conditional_replication_new_runs": 16,
   "conditional_adaptation_seeds": [
@@ -80,5 +116,10 @@
     "val_used": false,
     "test_used": false,
     "original_feature_alignment_relative_rms": 0.0
+  },
+  "independent_baseline_seeds_per_dataset": {
+    "cifar10": 5,
+    "cifar100": 2,
+    "cub": 5
   }
 }
