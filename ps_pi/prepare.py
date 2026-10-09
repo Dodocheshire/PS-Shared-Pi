@@ -108,6 +108,6 @@ def main():
                             bank['text'],t['labels'].tolist(),bank['class_sets'],Tconf=config['Tconf'])
                 atomic_save(labels,path)
         atomic_json({'phase':'complete','concept_count':len(bank['concepts']),'train_n':len(train_ids),'val_n':len(val_ids),
-                     'test_loaded':False,'time':time.time()},status)
+                     'test_features_encoded':False,'test_used_for_selection':False,'time':time.time()},status)
         print('Preparation complete',len(bank['concepts']),'concepts; no test features opened',flush=True)
 if __name__=='__main__': main()
