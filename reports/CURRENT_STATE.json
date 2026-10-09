@@ -1,0 +1,14 @@
+{
+  "time": 1791522060.2531638,
+  "goal_status": "active",
+  "completed_baselines": 3,
+  "baseline_models": 6,
+  "completed_validation_controls": 42,
+  "tested_protocol_checks": 19,
+  "test_features_encoded": false,
+  "five_seed_final_evidence": false,
+  "current_result": "no reliable noise classification improvement",
+  "next_stage": "joint CBL learning with training-only semantic feature noise directions",
+  "prepared_directions": "artifacts/cub/joint_feature_v5/directions.pt",
+  "report": "../Essay/PS-Shared/report/\u4e3b\u8981\u5b9e\u9a8c\u8fdb\u5c55.md"
+}

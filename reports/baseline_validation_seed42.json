@@ -1,0 +1,85 @@
+{
+  "split": "val",
+  "test_used": false,
+  "seed": 42,
+  "datasets": {
+    "cifar10": {
+      "official_final_state": {
+        "accuracy": 0.9074000120162964,
+        "nll": 0.29134291410446167,
+        "ece15": 0.018933996558189392,
+        "concept_count": 61,
+        "concept_bce_best": 0.06815207749605179,
+        "checkpoint_step": 19999,
+        "head_nonzero": 75,
+        "head_parameters": 610,
+        "split": "val",
+        "smoke": false
+      },
+      "corrected_best_validation": {
+        "accuracy": 0.9071999788284302,
+        "nll": 0.28618988394737244,
+        "ece15": 0.017480826005339622,
+        "concept_count": 61,
+        "concept_bce_best": 0.06815207749605179,
+        "checkpoint_step": 16400,
+        "head_nonzero": 77,
+        "head_parameters": 610,
+        "split": "val",
+        "smoke": false
+      }
+    },
+    "cifar100": {
+      "official_final_state": {
+        "accuracy": 0.7215999960899353,
+        "nll": 0.9973844885826111,
+        "ece15": 0.032536886632442474,
+        "concept_count": 583,
+        "concept_bce_best": 0.023670800030231476,
+        "checkpoint_step": 19999,
+        "head_nonzero": 551,
+        "head_parameters": 58300,
+        "split": "val",
+        "smoke": false
+      },
+      "corrected_best_validation": {
+        "accuracy": 0.7235999703407288,
+        "nll": 0.9504784345626831,
+        "ece15": 0.024531716480851173,
+        "concept_count": 583,
+        "concept_bce_best": 0.023670800030231476,
+        "checkpoint_step": 11400,
+        "head_nonzero": 556,
+        "head_parameters": 58300,
+        "split": "val",
+        "smoke": false
+      }
+    },
+    "cub": {
+      "official_final_state": {
+        "accuracy": 0.6865000128746033,
+        "nll": 1.1275027990341187,
+        "ece15": 0.0957023873925209,
+        "concept_count": 509,
+        "concept_bce_best": 0.0395585335791111,
+        "checkpoint_step": 29999,
+        "head_nonzero": 653,
+        "head_parameters": 101800,
+        "split": "val",
+        "smoke": false
+      },
+      "corrected_best_validation": {
+        "accuracy": 0.6869999766349792,
+        "nll": 1.127249836921692,
+        "ece15": 0.0961134135723114,
+        "concept_count": 509,
+        "concept_bce_best": 0.0395585335791111,
+        "checkpoint_step": 29850,
+        "head_nonzero": 663,
+        "head_parameters": 101800,
+        "split": "val",
+        "smoke": false
+      }
+    }
+  }
+}
